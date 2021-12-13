@@ -1,0 +1,12 @@
+{
+  // Weather Effects:
+  "accessibilitytweaks:weather-effects-settings-title": "Weather Effects:\n",
+  "accessibilitytweaks:weather-effects-LightningEnabled": "Lightning Effects Enabled: {0}",
+  "accessibilitytweaks:weather-effects-SoundsEnabled": "Weather Sound Effects Enabled: {0}",
+  "accessibilitytweaks:weather-effects-RaindropsEnabled": "Rain Particle Effects Enabled: {0}",
+  "accessibilitytweaks:weather-effects-HailEnabled": "Hail Particle Effects Enabled: {0}",
+  "accessibilitytweaks:weather-effects-SnowEnabled": "Snow Particle Effects Enabled: {0}",
+  "accessibilitytweaks:weather-effects-CameraShakeEnabled": "Jittery Camera Shakes Enabled: {0}",
+  "accessibilitytweaks:weather-effects-FogEnabled": "Fog Effects Enabled: {0}",
+  "accessibilitytweaks:weather-effects-CloudsEnabled": "Clouds Enabled: {0}"
+}

@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31911.196
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheTech.VintageMods.Core", "..\ApacheTech.VintageMods.Core\ApacheTech.VintageMods.Core\ApacheTech.VintageMods.Core.csproj", "{267720C6-1752-4023-9686-0BB3B38DDDDB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{6F215B0A-2467-449D-8516-89CAB6A7C215}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mod", "Mod", "{29C76EF2-BEAD-49A2-BDAA-72F1B3FD94FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{CAF6F5F7-C2B8-4C8D-BEFA-21C555A3DAA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApacheTech.VintageMods.DotNetFrameworkLauncher", "..\ApacheTech.VintageMods.DotNetFrameworkLauncher\ApacheTech.VintageMods.DotNetFrameworkLauncher\ApacheTech.VintageMods.DotNetFrameworkLauncher.csproj", "{EBC0233E-F9F2-4B60-B145-143CD650A63B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheTech.VintageMods.AccessibilityTweaks", "ApacheTech.VintageMods.AccessibilityTweaks\ApacheTech.VintageMods.AccessibilityTweaks.csproj", "{1F1734E8-39CA-4C87-BDA5-71C18289D926}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Package|Any CPU = Package|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{267720C6-1752-4023-9686-0BB3B38DDDDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{267720C6-1752-4023-9686-0BB3B38DDDDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{267720C6-1752-4023-9686-0BB3B38DDDDB}.Package|Any CPU.ActiveCfg = Release|Any CPU
+		{267720C6-1752-4023-9686-0BB3B38DDDDB}.Package|Any CPU.Build.0 = Release|Any CPU
+		{267720C6-1752-4023-9686-0BB3B38DDDDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{267720C6-1752-4023-9686-0BB3B38DDDDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B}.Package|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B}.Package|Any CPU.Build.0 = Debug|Any CPU
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926}.Package|Any CPU.ActiveCfg = Package|Any CPU
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926}.Package|Any CPU.Build.0 = Package|Any CPU
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{267720C6-1752-4023-9686-0BB3B38DDDDB} = {6F215B0A-2467-449D-8516-89CAB6A7C215}
+		{EBC0233E-F9F2-4B60-B145-143CD650A63B} = {CAF6F5F7-C2B8-4C8D-BEFA-21C555A3DAA7}
+		{1F1734E8-39CA-4C87-BDA5-71C18289D926} = {29C76EF2-BEAD-49A2-BDAA-72F1B3FD94FA}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {17961E01-8E04-43D7-9947-7E0342352ADD}
+	EndGlobalSection
+EndGlobal

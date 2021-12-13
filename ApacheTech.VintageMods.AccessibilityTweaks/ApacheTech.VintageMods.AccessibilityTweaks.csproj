@@ -1,0 +1,78 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netstandard2.0</TargetFramework>
+		<LangVersion>latest</LangVersion>
+		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+		<OutputType>Library</OutputType>
+		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
+		<Configurations>Debug;Release;Package</Configurations>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="_EmbeddedResources\World\settings-world-client.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="_EmbeddedResources\World\settings-world-client.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="ApacheTech.VintageMods.AccessibilityTweaks.saproj">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ApacheTech.VintageMods.FluentChatCommands" Version="1.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\ApacheTech.VintageMods.Core\ApacheTech.VintageMods.Core\ApacheTech.VintageMods.Core.csproj" />
+		</ItemGroup>
+
+		<PropertyGroup>
+			<VintageStoryDirectory>C:\Games\Vintage Story Beta\</VintageStoryDirectory>
+		</PropertyGroup>
+
+	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>$(VINTAGE_STORY)\Lib\0Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="VintagestoryAPI">
+			<HintPath>$(VINTAGE_STORY)\VintagestoryAPI.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="VintagestoryLib">
+			<HintPath>$(VINTAGE_STORY)\VintagestoryLib.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="VSEssentials">
+			<HintPath>$(VINTAGE_STORY)\Mods\VSEssentials.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Folder Include="Properties\PublishProfiles\" />
+	</ItemGroup>
+
+	<PropertyGroup>
+		<ModPackagerDir>C:\Users\Apache\source\repos\ModPackager\ModPackager\bin\Release\net6.0\publish\win-x64\</ModPackagerDir>
+		<ModPackagerName>ModPackager.exe</ModPackagerName>
+		<ModPackagerPath>$(ModPackagerDir)$(ModPackagerName)</ModPackagerPath>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Package|AnyCPU'">
+	  <DefineConstants>TRACE</DefineConstants>
+	  <Optimize>true</Optimize>
+	</PropertyGroup>
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="if '$(Configuration)' == 'Package' (&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(TargetDir)_Includes\&quot; /y /e /s&#xD;&#xA;&#xD;&#xA;:: Package the mod. ::&#xD;&#xA;cd &quot;$(ModPackagerDir)&quot;&#xD;&#xA;&quot;$(ModPackagerPath)&quot; -a &quot;$(TargetPath)&quot;&#xD;&#xA;&#xD;&#xA;:: Copy mod package to releases directory. ::&#xD;&#xA;copy /y &quot;$(TargetDir)release\*.zip&quot; &quot;$(SolutionDir).releases&quot;&#xD;&#xA;&#xD;&#xA;)" />
+	</Target>
+
+</Project>
