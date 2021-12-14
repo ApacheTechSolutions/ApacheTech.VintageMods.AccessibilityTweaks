@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Text;
+﻿using System.Text;
 using ApacheTech.Common.Extensions.Harmony;
 using ApacheTech.VintageMods.Core.Abstractions.ModSystems;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
@@ -8,53 +7,51 @@ using ApacheTech.VintageMods.FluentChatCommands;
 using Vintagestory.API.Client;
 using Vintagestory.API.Config;
 
+// ReSharper disable UnusedType.Global
+
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
 {
-    public class WeatherEffects : ClientModSystem
+    /// <summary>
+    ///     Features: Weather Effects.
+    /// 
+    ///      • Toggle Rain Particle Effects
+    ///      • Toggle Hail Particle Effects
+    ///      • Toggle Snow Particle Effects
+    ///      • Toggle Weather Sound Effects
+    ///      • Toggle Fog Effects
+    ///      • Toggle Cloud Render Effects
+    ///      • Toggle Rain Particle Effects
+    ///      • Toggle Lightning Lighting Effects
+    /// </summary>
+    /// <seealso cref="ClientModSystem" />
+    public sealed class WeatherEffects : ClientModSystem
     {
         private WeatherSettings _settings;
-        private Dictionary<string, string> _settingsMap;
 
+        /// <summary>
+        ///     Minor convenience method to save yourself the check for/cast to ICoreClientAPI in Start()
+        /// </summary>
+        /// <param name="api">The API.</param>
         public override void StartClientSide(ICoreClientAPI api)
         {
-            _settingsMap = new Dictionary<string, string>
-            {
-                { "lightning", "LightningEnabled" },
-                { "rain", "RaindropsEnabled" },
-                { "hail", "HailEnabled" },
-                { "snow", "SnowEnabled" },
-                { "fog", "FogEnabled" },
-                { "clouds", "CloudsEnabled" },
-                { "shake", "CameraShakeEnabled" },
-                { "sounds", "SoundsEnabled" }
-            };
-
             _settings = ModServices.IOC.Resolve<WeatherSettings>();
+
+            var sb = new StringBuilder(Lang.Get("accessibilitytweaks:weather-effects-settings-title"));
             var command = FluentChat.ClientCommand("wt", "weatherTweaks")
                 .RegisterWith(api)
-                .HasDescription("Provides Quality of Life tweaks for weather effects.")
-                .HasSubCommand("settings").WithHandler((_, _, _) =>
-                {
-                    var sb = new StringBuilder();
-                    sb.AppendLine(Lang.Get("accessibilitytweaks:weather-effects-settings-title"));
-                    sb.AppendLine(GetSettingMessage("LightningEnabled"));
-                    sb.AppendLine(GetSettingMessage("RaindropsEnabled"));
-                    sb.AppendLine(GetSettingMessage("HailEnabled"));
-                    sb.AppendLine(GetSettingMessage("SnowEnabled"));
-                    sb.AppendLine(GetSettingMessage("FogEnabled"));
-                    sb.AppendLine(GetSettingMessage("CloudsEnabled"));
-                    sb.AppendLine(GetSettingMessage("CameraShakeEnabled"));
-                    sb.AppendLine(GetSettingMessage("SoundsEnabled"));
-                    api.SendChatMessage(".clearchat");
-                    api.ShowChatMessage(sb.ToString());
-                });
+                .HasDescription("Provides Quality of Life tweaks for weather effects.");
 
-            foreach (var record in _settingsMap)
+            foreach (var record in WeatherSettingsCommandMap.GetSettings())
             {
-                command
-                    .HasSubCommand(record.Key)
-                    .WithHandler((_, _, _) => ToggleSetting(record.Value));
+                sb.AppendLine(GetSettingMessage(record.Value));
+                command.HasSubCommand(record.Key).WithHandler((_, _, _) => ToggleSetting(record.Value));
             }
+            
+            command.HasSubCommand("settings").WithHandler((_, _, _) =>
+            {
+                api.SendChatMessage(".clearchat");
+                api.ShowChatMessage(sb.ToString());
+            });
         }
 
         private void ToggleSetting(string propertyName)
