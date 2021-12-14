@@ -6,8 +6,11 @@ using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 using Vintagestory.GameContent;
 
+#pragma warning disable IDE0051 // Remove unused private members
+
 // ReSharper disable UnusedMember.Local
 // ReSharper disable UnusedMember.Global
+// ReSharper disable UnusedType.Global
 // ReSharper disable StringLiteralTypo
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
@@ -29,10 +32,13 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects.Pat
 
         [HarmonyPrefix]
         [HarmonyPatch(typeof(WeatherDataSnapshot), "SetAmbientLerped")]
-        internal static bool Patch_WeatherDataSnapshot_SetAmbientLerped_Prefix(ref WeatherDataSnapshot __instance, WeatherPattern left, WeatherPattern right, float w, float addFogDensity = 0f)
+        private static bool Patch_WeatherDataSnapshot_SetAmbientLerped_Prefix(ref WeatherDataSnapshot __instance, WeatherPattern left, WeatherPattern right, float w, float addFogDensity = 0f)
         {
             if (!_settings.FogEnabled && _settings.CloudsEnabled) return true;
             var num = GameMath.Clamp(1f - (float)Math.Pow(1.1 - __instance.climateCond.Rainfall, 4.0), 0f, 1f);
+
+            __instance.Ambient.SceneBrightness.Value = left.State.nowSceneBrightness;
+            __instance.Ambient.SceneBrightness.Weight = 1f;
 
             if (_settings.FogEnabled)
             {
@@ -72,15 +78,14 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects.Pat
                 __instance.Ambient.CloudDensity.Value = 0f;
                 __instance.Ambient.CloudDensity.Weight = 0f;
             }
+            else
+            {
+                __instance.Ambient.CloudBrightness.Value = right.State.nowCloudBrightness * w + left.State.nowCloudBrightness * (1f - w);
+                __instance.Ambient.CloudBrightness.Weight = 1f;
 
-            __instance.Ambient.CloudBrightness.Value = right.State.nowCloudBrightness * w + left.State.nowCloudBrightness * (1f - w);
-            __instance.Ambient.CloudBrightness.Weight = 1f;
-
-            __instance.Ambient.CloudDensity.Value = right.State.nowbaseThickness * w + left.State.nowbaseThickness * (1f - w);
-            __instance.Ambient.CloudDensity.Weight = 1f;
-
-            __instance.Ambient.SceneBrightness.Value = left.State.nowSceneBrightness;
-            __instance.Ambient.SceneBrightness.Weight = 1f;
+                __instance.Ambient.CloudDensity.Value = right.State.nowbaseThickness * w + left.State.nowbaseThickness * (1f - w);
+                __instance.Ambient.CloudDensity.Weight = 1f;
+            }
 
             return false;
         }

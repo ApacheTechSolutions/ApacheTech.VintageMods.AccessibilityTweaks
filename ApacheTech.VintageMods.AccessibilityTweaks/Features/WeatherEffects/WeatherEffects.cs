@@ -37,16 +37,26 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
             _settings = ModServices.IOC.Resolve<WeatherSettings>();
 
             var sb = new StringBuilder(Lang.Get("accessibilitytweaks:weather-effects-settings-title"));
-            var command = FluentChat.ClientCommand("wt", "weatherTweaks")
+            var command = FluentChat.ClientCommand("wt")
                 .RegisterWith(api)
-                .HasDescription("Provides Quality of Life tweaks for weather effects.");
+                .HasDescription("accessibilitytweaks:weather-effects-command-description");
 
             foreach (var record in WeatherSettingsCommandMap.GetSettings())
             {
                 sb.AppendLine(GetSettingMessage(record.Value));
                 command.HasSubCommand(record.Key).WithHandler((_, _, _) => ToggleSetting(record.Value));
             }
-            
+
+            command.HasSubCommand("all").WithHandler((_, _, args) =>
+            {
+                var state = args.PopBool(true);
+                foreach (var propertyName in WeatherSettingsCommandMap.GetSettings().Values)
+                {
+                    _settings.SetProperty(propertyName, state);
+                }
+                api.SendChatMessage(".wt settings");
+            });
+
             command.HasSubCommand("settings").WithHandler((_, _, _) =>
             {
                 api.SendChatMessage(".clearchat");
@@ -56,7 +66,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
 
         private void ToggleSetting(string propertyName)
         {
-            var value = _settings.GetField<bool>(propertyName);
+            var value = _settings.GetProperty<bool>(propertyName);
             _settings.SetProperty(propertyName, !value);
             var message = GetSettingMessage(propertyName);
             ApiEx.Client.ShowChatMessage(message);

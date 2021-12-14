@@ -20,4 +20,4 @@ using Vintagestory.API.Common;
     ModName = "Accessibility Tweaks",
     RootDirectoryName = "AccessibilityTweaks",
     NetworkVersion = "1.0.0",
-    Version = "2.0.0")]
+    Version = "2.0.0", Side = EnumAppSide.Client)]

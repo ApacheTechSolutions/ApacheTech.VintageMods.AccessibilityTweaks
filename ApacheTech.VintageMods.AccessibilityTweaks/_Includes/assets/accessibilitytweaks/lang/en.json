@@ -1,5 +1,6 @@
 {
   // Weather Effects:
+  "accessibilitytweaks:weather-effects-command-description": "Provides Quality of Life tweaks for weather effects.",
   "accessibilitytweaks:weather-effects-settings-title": "Weather Effects:\n",
   "accessibilitytweaks:weather-effects-LightningEnabled": "Lightning Effects Enabled: {0}",
   "accessibilitytweaks:weather-effects-SoundsEnabled": "Weather Sound Effects Enabled: {0}",
