@@ -1,12 +1,14 @@
 ﻿{
   "Features": {
-    "WeatherEffects": {
+    "RenderedEffects": {
       "RaindropsEnabled": true,
       "LightningEnabled": true,
-      "SnowEnabled": true,
-      "HailEnabled": true,
+      "SnowflakesEnabled": true,
+      "HailstonesEnabled": true,
+      "DustParticlesEnabled": true,
       "CloudsEnabled": true,
       "CameraShakeEnabled": true,
+      "GlitchEnabled": true,
       "SoundsEnabled": true,
       "FogEnabled": true
     }

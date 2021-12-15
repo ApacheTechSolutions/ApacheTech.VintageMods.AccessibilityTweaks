@@ -1,5 +1,5 @@
 ﻿using ApacheTech.Common.DependencyInjection.Abstractions;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects;
+using ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects;
 using ApacheTech.VintageMods.Core.Hosting;
 using ApacheTech.VintageMods.Core.Hosting.Configuration;
 using ApacheTech.VintageMods.Core.Hosting.Configuration.Extensions;
@@ -19,7 +19,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks
         /// <param name="services">The as-of-yet un-built services container.</param>
         protected override void ConfigureClientModServices(IServiceCollection services)
         {
-            services.RegisterSingleton(_ => ModSettings.World.Feature<WeatherSettings>("WeatherEffects"));
+            services.RegisterSingleton(_ => ModSettings.World.Feature<RenderedEffectSettings>("RenderedEffects"));
         }
 
         /// <summary>

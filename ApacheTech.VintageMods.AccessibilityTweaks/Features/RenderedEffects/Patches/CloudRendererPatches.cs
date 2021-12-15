@@ -12,19 +12,19 @@ using Vintagestory.GameContent;
 // ReSharper disable UnusedType.Global
 // ReSharper disable StringLiteralTypo
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects.Patches
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
     public class CloudRendererPatches
     {
-        private static readonly WeatherSettings Settings;
+        private static readonly RenderedEffectSettings Settings;
 
         /// <summary>
         /// 	Initialises static members of the <see cref="CloudRendererPatches"/> class.
         /// </summary>
         static CloudRendererPatches()
         {
-            Settings = ModServices.IOC.Resolve<WeatherSettings>();
+            Settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
         }
 
         [HarmonyPrefix]

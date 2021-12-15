@@ -16,7 +16,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="_EmbeddedResources\World\settings-world-client.json" />
+	  <Content Include="_EmbeddedResources\World\settings-world-client.json">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -53,6 +55,9 @@
 		<Reference Include="VSEssentials">
 			<HintPath>$(VINTAGE_STORY)\Mods\VSEssentials.dll</HintPath>
 			<Private>false</Private>
+		</Reference>
+		<Reference Include="VSSurvivalMod">
+		  <HintPath>D:\Games\Vintage Story\Mods\VSSurvivalMod.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 

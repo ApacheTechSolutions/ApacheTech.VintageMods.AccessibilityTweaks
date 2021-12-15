@@ -9,7 +9,7 @@ using Vintagestory.API.Config;
 
 // ReSharper disable UnusedType.Global
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
 {
     /// <summary>
     ///     Features: Weather Effects.
@@ -24,9 +24,9 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
     ///      • Toggle Lightning Lighting Effects
     /// </summary>
     /// <seealso cref="ClientModSystem" />
-    public sealed class WeatherEffects : ClientModSystem
+    public sealed class RenderedEffects : ClientModSystem
     {
-        private WeatherSettings _settings;
+        private RenderedEffectSettings _settings;
 
         /// <summary>
         ///     Minor convenience method to save yourself the check for/cast to ICoreClientAPI in Start()
@@ -34,14 +34,14 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
         /// <param name="api">The API.</param>
         public override void StartClientSide(ICoreClientAPI api)
         {
-            _settings = ModServices.IOC.Resolve<WeatherSettings>();
+            _settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
 
             var sb = new StringBuilder(Lang.Get("accessibilitytweaks:weather-effects-settings-title"));
             var command = FluentChat.ClientCommand("wt")
                 .RegisterWith(api)
                 .HasDescription("accessibilitytweaks:weather-effects-command-description");
 
-            foreach (var record in WeatherSettingsCommandMap.GetSettings())
+            foreach (var record in RenderedEffectsCommandMap.GetSettings())
             {
                 sb.AppendLine(GetSettingMessage(record.Value));
                 command.HasSubCommand(record.Key).WithHandler((_, _, _) => ToggleSetting(record.Value));
@@ -50,7 +50,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects
             command.HasSubCommand("all").WithHandler((_, _, args) =>
             {
                 var state = args.PopBool(true);
-                foreach (var propertyName in WeatherSettingsCommandMap.GetSettings().Values)
+                foreach (var propertyName in RenderedEffectsCommandMap.GetSettings().Values)
                 {
                     _settings.SetProperty(propertyName, state);
                 }

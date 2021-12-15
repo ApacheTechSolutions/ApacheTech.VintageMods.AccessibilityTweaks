@@ -10,19 +10,19 @@ using Vintagestory.GameContent;
 // ReSharper disable UnusedMember.Local
 // ReSharper disable UnusedType.Global
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects.Patches
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
     public class WeatherSimulationSoundPatches
     {
-        private static readonly WeatherSettings Settings;
+        private static readonly RenderedEffectSettings Settings;
 
         /// <summary>
         /// 	Initialises static members of the <see cref="WeatherSimulationSoundPatches"/> class.
         /// </summary>
         static WeatherSimulationSoundPatches()
         {
-            Settings = ModServices.IOC.Resolve<WeatherSettings>();
+            Settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
         }
 
         [HarmonyPrefix]

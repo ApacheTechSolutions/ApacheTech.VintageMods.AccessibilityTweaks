@@ -15,19 +15,19 @@ using Vintagestory.GameContent;
 // ReSharper disable InconsistentNaming
 // ReSharper disable IdentifierTypo
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects.Patches
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
     public class WeatherDataSnapshotPatches
     {
-        private static readonly WeatherSettings _settings;
+        private static readonly RenderedEffectSettings _settings;
 
         /// <summary>
         /// 	Initialises static members of the <see cref="WeatherDataSnapshotPatches"/> class.
         /// </summary>
         static WeatherDataSnapshotPatches()
         {
-            _settings = ModServices.IOC.Resolve<WeatherSettings>();
+            _settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
         }
 
         [HarmonyPrefix]

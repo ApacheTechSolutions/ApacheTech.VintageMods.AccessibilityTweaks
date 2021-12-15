@@ -6,25 +6,24 @@ using Vintagestory.Client.NoObf;
 
 #pragma warning disable IDE0051 // Remove unused private members
 
-// ReSharper disable InconsistentNaming
-// ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedMember.Local
 // ReSharper disable UnusedType.Global
+// ReSharper disable InconsistentNaming
 // ReSharper disable StringLiteralTypo
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.WeatherEffects.Patches
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
     public class ClientMainPatches
     {
-        private static readonly WeatherSettings Settings;
+        private static readonly RenderedEffectSettings Settings;
 
         /// <summary>
         /// 	Initialises static members of the <see cref="ClientMainPatches"/> class.
         /// </summary>
         static ClientMainPatches()
         {
-            Settings = ModServices.IOC.Resolve<WeatherSettings>();
+            Settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
         }
 
         [HarmonyPrefix]
