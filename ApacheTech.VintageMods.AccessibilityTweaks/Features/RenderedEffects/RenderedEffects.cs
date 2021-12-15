@@ -37,7 +37,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
             _settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
 
             var sb = new StringBuilder(Lang.Get("accessibilitytweaks:weather-effects-settings-title"));
-            var command = FluentChat.ClientCommand("wt")
+            var command = FluentChat.ClientCommand("toggleeffects")
                 .RegisterWith(api)
                 .HasDescription("accessibilitytweaks:weather-effects-command-description");
 
