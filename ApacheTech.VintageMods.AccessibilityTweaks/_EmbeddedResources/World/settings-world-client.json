@@ -1,13 +1,13 @@
 ﻿{
   "Features": {
     "WeatherEffects": {
-      "RaindropsEnabled": false,
-      "LightningEnabled": false,
+      "RaindropsEnabled": true,
+      "LightningEnabled": true,
       "SnowEnabled": true,
-      "HailEnabled": false,
-      "CloudsEnabled": false,
-      "CameraShakeEnabled": false,
-      "SoundsEnabled": false,
+      "HailEnabled": true,
+      "CloudsEnabled": true,
+      "CameraShakeEnabled": true,
+      "SoundsEnabled": true,
       "FogEnabled": true
     }
   }
