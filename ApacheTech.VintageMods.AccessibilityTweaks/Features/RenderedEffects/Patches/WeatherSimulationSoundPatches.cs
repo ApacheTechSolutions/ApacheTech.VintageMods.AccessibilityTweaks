@@ -1,4 +1,4 @@
-﻿using ApacheTech.VintageMods.Core.Services;
+﻿using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -13,18 +13,8 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class WeatherSimulationSoundPatches
+    public class WeatherSimulationSoundPatches : FeaturePatch<RenderedEffectSettings>
     {
-        private static readonly RenderedEffectSettings Settings;
-
-        /// <summary>
-        /// 	Initialises static members of the <see cref="WeatherSimulationSoundPatches"/> class.
-        /// </summary>
-        static WeatherSimulationSoundPatches()
-        {
-            Settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
-        }
-
         [HarmonyPrefix]
         [HarmonyPatch(typeof(WeatherSimulationSound), "updateSounds")]
         private static bool Patch_WeatherSimulationSound_updateSounds_Prefix()

@@ -9,6 +9,8 @@
 		<AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
 		<GenerateBindingRedirectsOutputType>true</GenerateBindingRedirectsOutputType>
 		<Configurations>Debug;Release;Package</Configurations>
+		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+		<WarningsAsErrors />
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -16,9 +18,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Content Include="_EmbeddedResources\World\settings-world-client.json">
-	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-	  </Content>
+	  <EmbeddedResource Include="_EmbeddedResources\World\settings-world-client.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -28,7 +30,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<PackageReference Include="ApacheTech.VintageMods.FluentChatCommands" Version="1.1.1" />
+		<PackageReference Include="ApacheTech.VintageMods.FluentChatCommands" Version="1.4.1" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -40,8 +42,9 @@
 		</PropertyGroup>
 
 	<ItemGroup>
-		<Reference Include="0Harmony">
-			<HintPath>$(VINTAGE_STORY)\Lib\0Harmony.dll</HintPath>
+		<!-- Vintage Story Game Libraries -->
+		<Reference Include="Vintagestory">
+			<HintPath>$(VINTAGE_STORY)\Vintagestory.exe</HintPath>
 			<Private>false</Private>
 		</Reference>
 		<Reference Include="VintagestoryAPI">
@@ -52,12 +55,50 @@
 			<HintPath>$(VINTAGE_STORY)\VintagestoryLib.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
+		<Reference Include="VSCreativeMod">
+			<HintPath>$(VINTAGE_STORY)\Mods\VSCreativeMod.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="VSSurvivalMod">
+			<HintPath>$(VINTAGE_STORY)\Mods\VSSurvivalMod.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="VSEssentials">
 			<HintPath>$(VINTAGE_STORY)\Mods\VSEssentials.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
-		<Reference Include="VSSurvivalMod">
-		  <HintPath>D:\Games\Vintage Story\Mods\VSSurvivalMod.dll</HintPath>
+		<!-- Vintage Story Included Libraries -->
+		<Reference Include="0Harmony">
+			<HintPath>$(VINTAGE_STORY)\Lib\0Harmony.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="AnimatedGif">
+			<HintPath>$(VINTAGE_STORY)\Lib\AnimatedGif.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="cairo-sharp">
+			<HintPath>$(VINTAGE_STORY)\Lib\cairo-sharp.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(VINTAGE_STORY)\Lib\Newtonsoft.Json.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="OpenTK">
+			<HintPath>$(VINTAGE_STORY)\Lib\OpenTK.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="protobuf-net">
+			<HintPath>$(VINTAGE_STORY)\Lib\protobuf-net.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="System.Data.SQLite">
+			<HintPath>$(VINTAGE_STORY)\Lib\System.Data.SQLite.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
+		<Reference Include="Tavis.JsonPatch">
+			<HintPath>$(VINTAGE_STORY)\Lib\Tavis.JsonPatch.dll</HintPath>
+			<Private>false</Private>
 		</Reference>
 	</ItemGroup>
 
@@ -83,5 +124,7 @@
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">
 	  <Exec Command=":: Clean the target directory. ::&#xD;&#xA;del /f /s /q $(TargetDir) &gt; NUL&#xD;&#xA;rmdir /s /q $(TargetDir)&#xD;&#xA;&#xD;&#xA;:: Clean all previous releases. ::&#xD;&#xA;if exist &quot;$(SolutionDir).releases\$(ProjectName)*.zip&quot; del &quot;$(SolutionDir).releases\$(ProjectName)*.zip&quot;&#xD;&#xA;&#xD;&#xA;:: Rebuild the necessary folders. ::&#xD;&#xA;if not exist $(SolutionDir).releases mkdir $(SolutionDir).releases" />
 	</Target>
+
+	<ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>

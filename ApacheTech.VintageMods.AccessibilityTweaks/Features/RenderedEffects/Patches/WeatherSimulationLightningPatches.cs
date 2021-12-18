@@ -1,4 +1,4 @@
-﻿using ApacheTech.VintageMods.Core.Services;
+﻿using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -12,18 +12,8 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class WeatherSimulationLightningPatches
+    public class WeatherSimulationLightningPatches : FeaturePatch<RenderedEffectSettings>
     {
-        private static readonly RenderedEffectSettings Settings;
-
-        /// <summary>
-        /// 	Initialises static members of the <see cref="WeatherSimulationLightningPatches"/> class.
-        /// </summary>
-        static WeatherSimulationLightningPatches()
-        {
-            Settings = ModServices.IOC.Resolve<RenderedEffectSettings>();
-        }
-
         [HarmonyPrefix]
         [HarmonyPatch(typeof(WeatherSimulationLightning), "ClientTick")]
         private static bool Patch_WeatherSimulationLightning_ClientTick_Prefix()
