@@ -9,5 +9,9 @@
   "accessibilitytweaks:weather-effects-SnowEnabled": "Snow Particle Effects Enabled: {0}",
   "accessibilitytweaks:weather-effects-CameraShakeEnabled": "Jittery Camera Shakes Enabled: {0}",
   "accessibilitytweaks:weather-effects-FogEnabled": "Fog Effects Enabled: {0}",
-  "accessibilitytweaks:weather-effects-CloudsEnabled": "Clouds Enabled: {0}"
+  "accessibilitytweaks:weather-effects-CloudsEnabled": "Clouds Enabled: {0}",
+
+  // Super Bright:
+  "accessibilitytweaks:superBright-enabled": "Super Bright: {0}",
+  "accessibilitytweaks:superBright-brightness-level": "Brightness: {0}"
 }

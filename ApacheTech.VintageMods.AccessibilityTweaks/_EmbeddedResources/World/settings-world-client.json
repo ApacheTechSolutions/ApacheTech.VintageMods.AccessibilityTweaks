@@ -11,6 +11,15 @@
       "GlitchEnabled": true,
       "SoundsEnabled": true,
       "FogEnabled": true
+    },
+    "SuperBright": {
+      "Enabled": false,
+      "Brightness": 1.0,
+      "Colour": {
+        "X": 1.0,
+        "Y": 1.0,
+        "Z": 1.0
+      }
     }
   }
 }

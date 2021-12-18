@@ -17,3 +17,11 @@ A client-side mod that provides Quality of Life changes to aid content creators,
 | .toggleEffects shake             | Toggles the game being able to shake the camera without player input. |
 | .toggleEffects all [true/false]  | Enables/Disables all weather effect settings. |
 | .toggleEffects settings          | Displays the current values for all settings. |
+
+## Super Bright Mode
+
+| Command						   | Description |
+| ---							   | --- |
+| .superBright			           | Toggles super bright mode. |
+| .superBright brightness [float]  | Changes the brightness of super bright mode. |
+| .superBright colour [r] [g] [b]  | Changes the ambient colour of super bright mode. |

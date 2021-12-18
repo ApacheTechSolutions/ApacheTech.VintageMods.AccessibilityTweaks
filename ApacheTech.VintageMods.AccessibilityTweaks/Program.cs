@@ -1,10 +1,12 @@
 ﻿using ApacheTech.Common.DependencyInjection.Abstractions;
 using ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects;
+using ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright;
 using ApacheTech.VintageMods.Core.Hosting;
 using ApacheTech.VintageMods.Core.Hosting.Configuration;
 using ApacheTech.VintageMods.Core.Hosting.Configuration.Extensions;
 using ApacheTech.VintageMods.Core.Services;
 using ApacheTech.VintageMods.Core.Services.FileSystem.Enums;
+using ApacheTech.VintageMods.FluentChatCommands;
 using Vintagestory.API.Client;
 
 // ReSharper disable UnusedType.Global
@@ -20,6 +22,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks
         protected override void ConfigureClientModServices(IServiceCollection services)
         {
             services.RegisterSingleton(_ => ModSettings.World.Feature<RenderedEffectSettings>("RenderedEffects"));
+            services.RegisterSingleton(_ => ModSettings.World.Feature<SuperBrightSettings>("SuperBright"));
         }
 
         /// <summary>
@@ -43,6 +46,15 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks
         public override void StartClientSide(ICoreClientAPI api)
         {
             ModServices.Harmony.UseHarmony();
+        }
+
+        /// <summary>
+        ///     If this mod allows runtime reloading, you must implement this method to unregister any listeners / handlers
+        /// </summary>
+        public override void Dispose()
+        {
+            base.Dispose();
+            FluentChat.DisposeClientCommands();
         }
     }
 }
