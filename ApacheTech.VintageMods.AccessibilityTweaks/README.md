@@ -2,7 +2,7 @@
 
 A client-side mod that provides Quality of Life changes to aid content creators, and those with motion/light affected epilepsy.
 
-## Chat Commands
+## Rendered Effects
 
 | Command						   | Description |
 | ---							   | --- |
