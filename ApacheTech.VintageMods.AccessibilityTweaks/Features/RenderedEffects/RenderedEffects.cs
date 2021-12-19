@@ -5,7 +5,9 @@ using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Services;
 using ApacheTech.VintageMods.FluentChatCommands;
 using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 using Vintagestory.API.Config;
+using Vintagestory.Client.NoObf;
 
 // ReSharper disable StringLiteralTypo
 // ReSharper disable UnusedType.Global
@@ -42,12 +44,14 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
             var command = FluentChat.ClientCommand("toggleeffects")
                 .RegisterWith(api, "te")
                 .HasDescription("accessibilitytweaks:weather-effects-command-description");
-
+            
             foreach (var record in RenderedEffectsCommandMap.GetSettings())
             {
                 sb.AppendLine(GetSettingMessage(record.Value));
                 command.HasSubCommand(record.Key).WithHandler((_, _, _) => ToggleSetting(record.Value));
             }
+
+            command.HasSubCommand("glitch").WithHandler(OnGlitchSubCommand);
 
             command.HasSubCommand("all").WithHandler((_, _, args) =>
             {
@@ -60,6 +64,13 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
             });
 
             command.HasSubCommand("settings").WithHandler((_, _, _) => { DisplaySettings(api, sb); });
+        }
+
+        private void OnGlitchSubCommand(string subCommandName, int groupId, CmdArgs args)
+        {
+            ToggleSetting("GlitchEnabled");
+            ClientSettings.WavingFoliage = _settings.GlitchEnabled;
+            ApiEx.Client.Shader.ReloadShaders();
         }
 
         private static void DisplaySettings(ICoreClientAPI api, StringBuilder sb)

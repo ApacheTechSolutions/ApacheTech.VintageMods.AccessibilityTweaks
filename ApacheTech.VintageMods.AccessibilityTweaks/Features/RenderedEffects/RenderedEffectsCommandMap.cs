@@ -22,7 +22,6 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
                 { "snow", "SnowflakesEnabled" },
                 { "dust", "DustParticlesEnabled" },
                 { "fog", "FogEnabled" },
-                { "glitch", "GlitchEnabled" },
                 { "clouds", "CloudsEnabled" },
                 { "shake", "CameraShakeEnabled" },
                 { "sounds", "SoundsEnabled" }

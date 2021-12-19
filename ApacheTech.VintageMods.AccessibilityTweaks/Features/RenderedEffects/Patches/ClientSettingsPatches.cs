@@ -14,24 +14,19 @@ using Vintagestory.GameContent;
 // ReSharper disable InconsistentNaming
 
 #pragma warning disable IDE0051 // Remove unused private members
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
-#pragma warning disable IDE0060 // Remove unused parameter
 
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
     public class ClientSettingsPatches : FeaturePatch<RenderedEffectSettings>
     {
-        private static SystemTemporalStability _stabilitySystem;
-
-        [HarmonyPrefix]
+        [HarmonyPostfix]
         [HarmonyPatch(typeof(ClientSettings), "WavingFoliage", MethodType.Getter)]
-        private static bool Patch_ClientSettings_WavingFoliage_Prefix(bool __result)
+        private static void Patch_ClientSettings_WavingFoliage_Postfix(ref bool __result)
         {
-            _stabilitySystem ??= ApiEx.Client.ModLoader.GetModSystem<SystemTemporalStability>();
-            if (!_stabilitySystem.StormData.nowStormActive) return true;
-            __result = false;
-            return Settings.GlitchEnabled;
+            var stabilitySystem = ApiEx.Client.ModLoader.GetModSystem<SystemTemporalStability>();
+            if (!stabilitySystem.StormData.nowStormActive) return;
+            __result = __result && Settings.GlitchEnabled;
         }
     }
 }
