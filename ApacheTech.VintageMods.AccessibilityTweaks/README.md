@@ -7,13 +7,13 @@ A client-side mod that provides Quality of Life changes to aid content creators,
 Various effects within the game can be harmful, and even potentially fatal to some players. This mod helps to aleviate some of these issues by allowing the player to disable various rendered effects and sound effects.
 
  - Toggle the rendering of raindrop particle effects.
- - Toggle the rendering of hailstone particle effects. |
- - Toggle the rendering of snowflake particle effects. |
- - Toggle the rendering of dust particle effects. |
- - Toggle the rendering of fog effects. |
- - Toggle the rendering of clouds. Requires re-log. |
- - Toggle the rendering of the glitch effect that comes with Temporal Storms. |
- - Toggle the game being able to shake the camera without player input. |
+ - Toggle the rendering of hailstone particle effects.
+ - Toggle the rendering of snowflake particle effects.
+ - Toggle the rendering of dust particle effects.
+ - Toggle the rendering of fog effects.
+ - Toggle the rendering of clouds. Requires re-log.
+ - Toggle the rendering of the glitch effect that comes with Temporal Storms.
+ - Toggle the game being able to shake the camera without player input.
 
 | Command						   | Description |
 | ---							   | --- |
