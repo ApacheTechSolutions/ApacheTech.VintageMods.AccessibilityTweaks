@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Linq;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
@@ -25,8 +24,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright.Patche
         private static void Patch_AmbientManager_BlendedSceneBrightness_Postfix(ref float __result)
         {
             if (!Settings.Enabled) return;
-            var brightness = Math.Max(__result, Settings.Brightness);
-            __result = brightness;
+            __result = Math.Max(__result, Settings.Brightness);
         }
 
         [HarmonyPostfix]
@@ -34,12 +32,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright.Patche
         private static void Patch_AmbientManager_BlendedAmbientColor_Postfix(ref Vec3f __result)
         {
             if (!Settings.Enabled) return;
-            __result ??= Vec3f.Zero;
-            var colour = Settings.Colour;
-            var colourBrightness = colour.ToDoubleArray().Sum();
-            var resultBrightness = __result.ToDoubleArray().Sum();
-            __result = (colourBrightness >= resultBrightness) ? colour : __result;
+            __result = __result.AddCopy(Settings.Colour);
         }
-
     }
 }
