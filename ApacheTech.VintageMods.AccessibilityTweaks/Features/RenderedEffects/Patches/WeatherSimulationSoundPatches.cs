@@ -13,7 +13,7 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class WeatherSimulationSoundPatches : FeaturePatch<RenderedEffectSettings>
+    public class WeatherSimulationSoundPatches : SettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(WeatherSimulationSound), "updateSounds")]

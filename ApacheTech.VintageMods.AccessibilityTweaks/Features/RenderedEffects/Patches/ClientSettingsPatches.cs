@@ -18,7 +18,7 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class ClientSettingsPatches : FeaturePatch<RenderedEffectSettings>
+    public class ClientSettingsPatches : SettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(ClientSettings), "WavingFoliage", MethodType.Getter)]

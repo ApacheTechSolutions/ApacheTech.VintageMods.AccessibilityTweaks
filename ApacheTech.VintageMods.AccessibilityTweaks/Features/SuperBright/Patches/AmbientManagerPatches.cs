@@ -18,7 +18,7 @@ using Vintagestory.Client.NoObf;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class AmbientManagerPatches : FeaturePatch<SuperBrightSettings>
+    public sealed class AmbientManagerPatches : SettingsConsumer<SuperBrightSettings>
     {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(AmbientManager), "BlendedSceneBrightness", MethodType.Getter)]

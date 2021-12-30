@@ -15,7 +15,7 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class CloudRendererPatches : FeaturePatch<RenderedEffectSettings>
+    public class CloudRendererPatches : SettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(CloudRenderer), "CloudTick")]

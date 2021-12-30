@@ -1,0 +1,35 @@
+{
+  "Features.RenderedEffects.Description": "Provides Quality of Life tweaks for various rendered effects.",
+
+  "Features.RenderedEffects.Dialogue.Title": "Rendered Effects Settings",
+
+  "Features.RenderedEffects.Dialogue.lblCameraShakeEnabled": "Camera Shake:",
+  "Features.RenderedEffects.Dialogue.lblCameraShakeEnabled.HoverText": "Toggles the game being able to shake the camera without player input.",
+
+  "Features.RenderedEffects.Dialogue.lblCloudsEnabled": "Clouds:",
+  "Features.RenderedEffects.Dialogue.lblCloudsEnabled.HoverText": "Toggles the rendering of clouds. [Requires Re-log]",
+
+  "Features.RenderedEffects.Dialogue.lblDustParticlesEnabled": "Dust:",
+  "Features.RenderedEffects.Dialogue.lblDustParticlesEnabled.HoverText": "Toggles the rendering of dust particle effects.",
+
+  "Features.RenderedEffects.Dialogue.lblFogEnabled": "Fog Effects:",
+  "Features.RenderedEffects.Dialogue.lblFogEnabled.HoverText": "Toggles the rendering of fog effects.",
+
+  "Features.RenderedEffects.Dialogue.lblGlitchEnabled": "Screen Glitching:",
+  "Features.RenderedEffects.Dialogue.lblGlitchEnabled.HoverText": "Toggles the rendering of the glitch effect that comes with Temporal Storms.",
+
+  "Features.RenderedEffects.Dialogue.lblHailstonesEnabled": "Hailstones:",
+  "Features.RenderedEffects.Dialogue.lblHailstonesEnabled.HoverText": "Toggles the rendering of hailstone particle effects.",
+
+  "Features.RenderedEffects.Dialogue.lblLightningEnabled": "Lightning Flashes:",
+  "Features.RenderedEffects.Dialogue.lblLightningEnabled.HoverText": "Toggles the rendering of lightning flashing light effects.",
+
+  "Features.RenderedEffects.Dialogue.lblRaindropsEnabled": "Raindrops:",
+  "Features.RenderedEffects.Dialogue.lblRaindropsEnabled.HoverText": "Toggles the rendering of raindrop particle effects.",
+
+  "Features.RenderedEffects.Dialogue.lblSnowflakesEnabled": "Snowflakes:",
+  "Features.RenderedEffects.Dialogue.lblSnowflakesEnabled.HoverText": "Toggles the rendering of snowflake particle effects.",
+
+  "Features.RenderedEffects.Dialogue.lblSoundsEnabled": "Weather Sound Effects:",
+  "Features.RenderedEffects.Dialogue.lblSoundsEnabled.HoverText": "Toggle Weather Sound Effects"
+}

@@ -4,7 +4,6 @@ using ApacheTech.VintageMods.Core.Services;
 using ApacheTech.VintageMods.FluentChatCommands;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.API.Config;
 using Vintagestory.API.MathTools;
 using Vintagestory.Client.NoObf;
 
@@ -35,6 +34,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright
 
             FluentChat.ClientCommand("superbright")
                 .RegisterWith(api)
+                .HasDescription(LangEx.FeatureString("SuperBright", "Description"))
                 .HasDefaultHandler(ToggleSuperBright)
                 .HasSubCommand("brightness").WithHandler(SetMinimumBrightness)
                 .HasSubCommand("colour").WithHandler(SetAmbientColour);
@@ -42,14 +42,14 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright
 
         private static void GetBlendedSceneBrightness()
         {
-            ApiEx.Client.ShowChatMessage(Lang.Get("accessibilitytweaks:superBright-brightness-level",
+            ApiEx.Client.ShowChatMessage(LangEx.FeatureString("SuperBright", "BrightnessLevel",
                 ((AmbientManager)ApiEx.Client.Ambient).BlendedSceneBrightness));
         }
 
         private void ToggleSuperBright(int groupId, CmdArgs args)
         {
             _settings.Enabled = !_settings.Enabled;
-            ApiEx.Client.ShowChatMessage(Lang.Get("accessibilitytweaks:superBright-enabled", 
+            ApiEx.Client.ShowChatMessage(LangEx.FeatureString("SuperBright", "Enabled", 
                 LangEx.BooleanString(_settings.Enabled)));
         }
 

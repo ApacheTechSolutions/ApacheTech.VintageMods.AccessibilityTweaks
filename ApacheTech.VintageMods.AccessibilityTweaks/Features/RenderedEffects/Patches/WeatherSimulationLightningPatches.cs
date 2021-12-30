@@ -12,7 +12,7 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class WeatherSimulationLightningPatches : FeaturePatch<RenderedEffectSettings>
+    public class WeatherSimulationLightningPatches : SettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(WeatherSimulationLightning), "ClientTick")]

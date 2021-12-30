@@ -1,5 +1,6 @@
 ﻿using ApacheTech.Common.DependencyInjection.Abstractions;
 using ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects;
+using ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Dialogue;
 using ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright;
 using ApacheTech.VintageMods.Core.Hosting;
 using ApacheTech.VintageMods.Core.Hosting.Configuration;
@@ -23,6 +24,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks
         {
             services.RegisterSingleton(_ => ModSettings.World.Feature<RenderedEffectSettings>("RenderedEffects"));
             services.RegisterSingleton(_ => ModSettings.World.Feature<SuperBrightSettings>("SuperBright"));
+            services.RegisterSingleton<RenderedEffectsDialogue>();
         }
 
         /// <summary>

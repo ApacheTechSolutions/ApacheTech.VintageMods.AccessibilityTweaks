@@ -1,0 +1,5 @@
+{
+  "Features.SuperBright.Description": "Displays a GUI to toggle various rendered client-side effects.",
+  "Features.SuperBright.Enabled": "Super Bright: {0}",
+  "Features.SuperBright.BrightnessLevel": "Brightness: {0}"
+}

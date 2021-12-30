@@ -14,7 +14,7 @@ using Vintagestory.Client.NoObf;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class ClientMainPatches : FeaturePatch<RenderedEffectSettings>
+    public class ClientMainPatches : SettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(ClientMain), "AddCameraShake")]

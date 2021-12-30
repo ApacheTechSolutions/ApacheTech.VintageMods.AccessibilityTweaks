@@ -3,12 +3,14 @@ using Vintagestory.API.Common;
 
 // ReSharper disable StringLiteralTypo
 
+[assembly:ModDependency("game", "1.16.0-rc.4")]
+
 [assembly:ModInfo(
     "Accessibility Tweaks",
     "accessibilitytweaks",
-    Description = "Quality of Life changes to aid content creators, and those with motion/light affected epilepsy.",
+    Description = "Quality of Life changes to aid content creators, and those with motion/light/noise affected epilepsy, or light sensitivity.",
     Side = "Client",
-    Version = "2.0.0",
+    Version = "2.0.0-rc.4",
     NetworkVersion = "1.0.0",
     IconPath = "modicon.png",
     Website = "https://apachetech.co.uk",
