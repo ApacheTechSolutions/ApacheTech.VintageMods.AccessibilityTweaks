@@ -1,5 +1,5 @@
-﻿using ApacheTech.VintageMods.Core.Common.StaticHelpers;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
+﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
+using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -18,7 +18,7 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class ClientSettingsPatches : SettingsConsumer<RenderedEffectSettings>
+    public class ClientSettingsPatches : WorldSettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(ClientSettings), "WavingFoliage", MethodType.Getter)]

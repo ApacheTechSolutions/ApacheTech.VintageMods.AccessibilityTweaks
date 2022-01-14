@@ -66,5 +66,11 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
         /// </summary>
         /// <value><c>true</c> if fog effects are enabled; otherwise, <c>false</c>.</value>
         public bool FogEnabled { get; set; }
+
+        /// <summary>
+        ///     Gets or sets a value indicating what volume to set the rift sounds to.
+        /// </summary>
+        /// <value>A <see cref="float"/> value between 0.0 and 1.0, that represents the percentage volume to set the sounds to.</value>
+        public float RiftVolume { get; set; }
     }
 }

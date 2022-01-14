@@ -1,5 +1,5 @@
 ﻿using System;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
+using ApacheTech.VintageMods.Core.Abstractions.Features;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -17,7 +17,7 @@ using Vintagestory.Client.NoObf;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class AmbientManagerPatches : SettingsConsumer<SuperBrightSettings>
+    public sealed class AmbientManagerPatches : WorldSettingsConsumer<SuperBrightSettings>
     {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(AmbientManager), "BlendedSceneBrightness", MethodType.Getter)]

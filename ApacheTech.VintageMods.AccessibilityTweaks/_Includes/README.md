@@ -14,6 +14,7 @@ Various effects within the game can be harmful, and even potentially fatal to so
  - Toggle the rendering of clouds. Requires re-log.
  - Toggle the rendering of the glitch effect that comes with Temporal Storms.
  - Toggle the game being able to shake the camera without player input.
+ - Change the volume of Rifts.
 
 | Command							   | Description |
 | ---								   | --- |

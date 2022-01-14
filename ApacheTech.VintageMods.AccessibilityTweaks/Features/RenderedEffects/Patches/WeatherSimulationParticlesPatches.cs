@@ -1,4 +1,4 @@
-﻿using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
+﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -12,7 +12,7 @@ using Vintagestory.GameContent;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class WeatherSimulationParticlesPatches : SettingsConsumer<RenderedEffectSettings>
+    public class WeatherSimulationParticlesPatches : WorldSettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(WeatherSimulationParticles), "SpawnHailParticles")]

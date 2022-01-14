@@ -1,4 +1,20 @@
 {
+  // ReSharper disable CommentTypo
+  // ==================================================================================
+  //  Accessibility Tweaks - Language File
+  // ==================================================================================
+  //
+  //    Language: English
+  //    Language Code: en
+  //    Translated By: Apache
+  //    Mod Version: 1.0.0
+  //    
+  // ==================================================================================
+
+  // ==================================================================================
+  //  Feature: Rendered Effects
+  // ==================================================================================
+
   "Features.RenderedEffects.Description": "Provides Quality of Life tweaks for various rendered effects.",
 
   "Features.RenderedEffects.Dialogue.Title": "Rendered Effects Settings",
@@ -31,5 +47,16 @@
   "Features.RenderedEffects.Dialogue.lblSnowflakesEnabled.HoverText": "Toggles the rendering of snowflake particle effects.",
 
   "Features.RenderedEffects.Dialogue.lblSoundsEnabled": "Weather Sound Effects:",
-  "Features.RenderedEffects.Dialogue.lblSoundsEnabled.HoverText": "Toggle Weather Sound Effects"
+  "Features.RenderedEffects.Dialogue.lblSoundsEnabled.HoverText": "Toggle Weather Sound Effects.",
+
+  "Features.RenderedEffects.Dialogue.lblRiftVolume": "Rift Volume:",
+  "Features.RenderedEffects.Dialogue.lblRiftVolume.HoverText": "Changes the volume of Rifts within the area.",
+
+  // ==================================================================================
+  //  Feature: Super Bright
+  // ==================================================================================
+
+  "Features.SuperBright.Description": "Helps people with poor vision, light sensitivity, or colour-blindness. Playing around with the colour settings can give everything a warm, or cool hue.",
+  "Features.SuperBright.Enabled": "Super Bright: {0}",
+  "Features.SuperBright.BrightnessLevel": "Brightness: {0}"
 }

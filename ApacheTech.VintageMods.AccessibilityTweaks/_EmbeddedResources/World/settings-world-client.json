@@ -10,7 +10,8 @@
       "CameraShakeEnabled": true,
       "GlitchEnabled": true,
       "SoundsEnabled": true,
-      "FogEnabled": true
+      "FogEnabled": true,
+      "RiftVolume": 1
     },
     "SuperBright": {
       "Enabled": false,

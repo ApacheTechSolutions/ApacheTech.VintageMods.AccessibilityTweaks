@@ -1,6 +1,6 @@
 ﻿using System;
 using ApacheTech.Common.Extensions.Harmony;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
+using ApacheTech.VintageMods.Core.Abstractions.Features;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -17,7 +17,7 @@ using Vintagestory.Common;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class ClientGameCalendarPatches : SettingsConsumer<SuperBrightSettings>
+    public sealed class ClientGameCalendarPatches : WorldSettingsConsumer<SuperBrightSettings>
     {
         [HarmonyPostfix]
         [HarmonyPatch(typeof(ClientGameCalendar), "DayLightStrength", MethodType.Getter)]

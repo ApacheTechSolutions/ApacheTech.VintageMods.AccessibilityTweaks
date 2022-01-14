@@ -1,4 +1,4 @@
-﻿using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Abstractions;
+﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
 using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
@@ -14,7 +14,7 @@ using Vintagestory.Client.NoObf;
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Patches
 {
     [HarmonySidedPatch(EnumAppSide.Client)]
-    public class ClientMainPatches : SettingsConsumer<RenderedEffectSettings>
+    public class ClientMainPatches : WorldSettingsConsumer<RenderedEffectSettings>
     {
         [HarmonyPrefix]
         [HarmonyPatch(typeof(ClientMain), "AddCameraShake")]

@@ -22,6 +22,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects
     ///      • Toggle Fog Effects
     ///      • Toggle Glitch Render Effects
     ///      • Toggle Lightning Lighting Effects
+    ///      • Change Volume of Rifts
     /// </summary>
     /// <seealso cref="ClientModSystem" />
     public sealed class RenderedEffects : ClientModSystem
