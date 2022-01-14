@@ -1,6 +1,8 @@
 # Accessibility Tweaks
 
-A client-side mod that provides Quality of Life changes to aid content creators, and those with motion/light affected epilepsy.
+A client-side mod made for content creators, and for people who suffer from epilepsy, or similar. This mod give you the option to remove all visual and audiable effects related to rain, hail, lightning, and snow; and completely removes involuntary camera shaking (for instance, when cold, or injured). These effects can be life-threatening for some people, and currently, the game has no way to disable the flashing lights and jittering camera effects... this mod changes that. Also removes the white noise sound effects of rain, and hail. as well as removing the ridiculously loud thunder sound effects.
+
+Rain still falls, and snow still accumulates; only the dropping particles are removed. You'll still see rain splashes in water, and you'll still take damage from the cold.
 
 ## Rendered Effects
 
