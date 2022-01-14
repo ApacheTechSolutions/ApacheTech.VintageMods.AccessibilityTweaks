@@ -12,7 +12,7 @@ using Vintagestory.API.Common;
     "accessibilitytweaks",
     Description = "Quality of Life changes to aid content creators, and those with motion/light/noise affected epilepsy, or light sensitivity.",
     Side = "Client",
-    Version = "2.0.0.0",
+    Version = "2.0.0",
     NetworkVersion = "1.0.0",
     IconPath = "modicon.png",
     Website = "https://apachetech.co.uk",
