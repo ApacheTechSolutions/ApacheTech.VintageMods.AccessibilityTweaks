@@ -2,8 +2,7 @@
 
 A client-side mod made for content creators, and for people who suffer from epilepsy, or similar. This mod give you the option to remove all visual and audiable effects related to rain, hail, lightning, and snow; and completely removes involuntary camera shaking (for instance, when cold, or injured). These effects can be life-threatening for some people, and currently, the game has no way to disable the flashing lights and jittering camera effects... this mod changes that. Also removes the white noise sound effects of rain, and hail. as well as removing the ridiculously loud thunder sound effects.
 
-Rain still falls, and snow still accumulates; only the dropping particles are removed. You'll still see rain splashes in water, and you'll still take damage from the cold.ERS:** If you install this mod on your server, it will remain as an optional mod for your clients. They can choose whether or not to have it installed on their client, and it will not cause any issues logging on, if they don't have it installed.
-
+Rain still falls, and snow still accumulates; only the dropping particles are removed. You'll still see rain splashes in water, and you'll still take damage from the cold.
 ## Features:
   
  - ### Feature: Accessibility Hub ***`(Default Hotkey: F8)`***
@@ -31,7 +30,7 @@ Rain still falls, and snow still accumulates; only the dropping particles are re
 
  - ### Feature: Sound Effects
     
-    The sounds within the game have not been normalised, so some sounds will sounds very loud, compared to others, even when played at the same game volume.
+    The sounds within the game have not been normalised, so some sounds will be very loud, compared to others, even when played at the same game volume.
     This feature allows the user to selectively choose the volume level for each in-game sound, individually, so that any white-noise can be filtered out.
     Very useful for sufferers of Tinnitus, or white-noise affected epilepsy.
     
