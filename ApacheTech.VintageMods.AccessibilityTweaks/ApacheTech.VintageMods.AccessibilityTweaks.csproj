@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
-		<LangVersion>latest</LangVersion>
+		<LangVersion>9</LangVersion>
 		<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
 		<OutputType>Library</OutputType>
 		<RestoreProjectStyle>PackageReference</RestoreProjectStyle>
@@ -14,18 +14,41 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Infrastructure\**" />
+	  <EmbeddedResource Remove="Infrastructure\**" />
+	  <None Remove="Infrastructure\**" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <None Remove=".gitkeep" />
-	  <None Remove="_EmbeddedResources\World\settings-world-client.json" />
 	  <None Remove="_Includes\.gitkeep" />
 	  <None Remove="_Includes\assets\.gitkeep" />
 	  <None Remove="_Includes\assets\accessibilitytweaks\.gitkeep" />
 	  <None Remove="_Includes\assets\accessibilitytweaks\lang\.gitkeep" />
+	  <None Remove="_Includes\assets\accessibilitytweaks\shaderincludes\daltonise.ash" />
+	  <None Remove="_Includes\assets\accessibilitytweaks\shaders\colour-correction.fsh" />
+	  <None Remove="_Includes\assets\accessibilitytweaks\shaders\colour-correction.vsh" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <EmbeddedResource Include="_EmbeddedResources\World\settings-world-client.json">
-	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-	  </EmbeddedResource>
+	  <Compile Include="Infrastructure\AccessibilityHub\AccessibilityHub.cs" />
+	  <Compile Include="Infrastructure\AccessibilityHub\AccessibilityHubProgram.cs" />
+	  <Compile Include="Infrastructure\AccessibilityHub\Dialogue\AccessibilityHubDialogue.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Include="_Includes\assets\accessibilitytweaks\shaderincludes\daltonise.ash">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="_Includes\assets\accessibilitytweaks\shaderincludes\hsl.ash">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="_Includes\assets\accessibilitytweaks\shaders\colour-correction.fsh">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
+	  <Content Include="_Includes\assets\accessibilitytweaks\shaders\colour-correction.vsh">
+	    <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+	  </Content>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -36,6 +59,10 @@
 
 	<ItemGroup>
 		<PackageReference Include="ApacheTech.VintageMods.FluentChatCommands" Version="1.4.1" />
+		<PackageReference Include="IsExternalInit" Version="1.0.2">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -48,6 +75,9 @@
 
 	<ItemGroup>
 		<!-- Vintage Story Game Libraries -->
+		<Reference Include="Microsoft.CSharp">
+		  <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll</HintPath>
+		</Reference>
 		<Reference Include="Vintagestory">
 			<HintPath>$(VINTAGE_STORY)\Vintagestory.exe</HintPath>
 			<Private>false</Private>
@@ -73,6 +103,10 @@
 			<Private>false</Private>
 		</Reference>
 		<!-- Vintage Story Included Libraries -->
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(VINTAGE_STORY)\Lib\Newtonsoft.Json.dll</HintPath>
+			<Private>false</Private>
+		</Reference>
 		<Reference Include="0Harmony">
 			<HintPath>$(VINTAGE_STORY)\Lib\0Harmony.dll</HintPath>
 			<Private>false</Private>
@@ -83,10 +117,6 @@
 		</Reference>
 		<Reference Include="cairo-sharp">
 			<HintPath>$(VINTAGE_STORY)\Lib\cairo-sharp.dll</HintPath>
-			<Private>false</Private>
-		</Reference>
-		<Reference Include="Newtonsoft.Json">
-			<HintPath>$(VINTAGE_STORY)\Lib\Newtonsoft.Json.dll</HintPath>
 			<Private>false</Private>
 		</Reference>
 		<Reference Include="OpenTK">
@@ -111,6 +141,10 @@
 		<ModPackagerDir>C:\Users\Apache\source\repos\ModPackager\ModPackager\bin\Release\net6.0\publish\win-x64\</ModPackagerDir>
 		<ModPackagerName>ModPackager.exe</ModPackagerName>
 		<ModPackagerPath>$(ModPackagerDir)$(ModPackagerName)</ModPackagerPath>
+
+		<ModInfoGeneratorDir>C:\Users\Apache\source\repos\Utils\ModInfoGenerator\</ModInfoGeneratorDir>
+		<ModInfoGeneratorName>ModInfoGenerator.exe</ModInfoGeneratorName>
+		<ModInfoGeneratorPath>$(ModInfoGeneratorDir)$(ModInfoGeneratorName)</ModInfoGeneratorPath>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Package|AnyCPU'">
@@ -118,8 +152,15 @@
 	  <Optimize>true</Optimize>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DocumentationFile>C:\Users\Apache\source\repos\ApacheTech.VintageMods.AccessibilityTweaks\ApacheTech.VintageMods.AccessibilityTweaks\ApacheTech.VintageMods.AccessibilityTweaks.xml</DocumentationFile>
+	  <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+	  <DebugType>embedded</DebugType>
+	  <DebugSymbols>true</DebugSymbols>
+	</PropertyGroup>
+
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="if $(Configuration) == Debug (&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(TargetDir)&quot; /y /e /s&#xD;&#xA;xcopy &quot;$(TargetDir)_Includes\&quot; &quot;$(TargetDir)&quot; /y /e /s&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Package (&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(TargetDir)_Includes\&quot; /y /e /s&#xD;&#xA;&#xD;&#xA;:: Package the mod. ::&#xD;&#xA;cd &quot;$(ModPackagerDir)&quot;&#xD;&#xA;&quot;$(ModPackagerPath)&quot; -a &quot;$(TargetPath)&quot;&#xD;&#xA;&#xD;&#xA;:: Copy mod package to releases directory. ::&#xD;&#xA;copy /y &quot;$(TargetDir)release\*.zip&quot; &quot;$(SolutionDir).releases&quot;&#xD;&#xA;&#xD;&#xA;)" />
+		<Exec Command="if $(Configuration) == Debug (&#xD;&#xA;&#xD;&#xA;:: Generator Mod Info file. ::&#xD;&#xA;cd &quot;$(ModInfoGeneratorDir)&quot;&#xD;&#xA;&quot;$(ModInfoGeneratorPath)&quot; -a &quot;$(TargetPath)&quot; -o $(TargetDir)&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(TargetDir)&quot; /y /e /s&#xD;&#xA;xcopy &quot;$(TargetDir)_Includes\&quot; &quot;$(TargetDir)&quot; /y /e /s&#xD;&#xA;&#xD;&#xA;)&#xD;&#xA;&#xD;&#xA;if $(Configuration) == Package (&#xD;&#xA;&#xD;&#xA;:: Copy all other relevant files to target directory. ::&#xD;&#xA;xcopy &quot;$(ProjectDir)_Includes\&quot; &quot;$(TargetDir)_Includes\&quot; /y /e /s&#xD;&#xA;&#xD;&#xA;:: Package the mod. ::&#xD;&#xA;cd &quot;$(ModPackagerDir)&quot;&#xD;&#xA;&quot;$(ModPackagerPath)&quot; -a &quot;$(TargetPath)&quot;&#xD;&#xA;&#xD;&#xA;:: Copy mod package to releases directory. ::&#xD;&#xA;copy /y &quot;$(TargetDir)release\*.zip&quot; &quot;$(SolutionDir).releases&quot;&#xD;&#xA;&#xD;&#xA;)" />
 	</Target>
 
 	<Target Name="PreBuild" BeforeTargets="PreBuildEvent">

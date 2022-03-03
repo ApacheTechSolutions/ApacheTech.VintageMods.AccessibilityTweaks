@@ -1,5 +1,6 @@
 {
   // ReSharper disable CommentTypo
+  // ReSharper disable StringLiteralTypo
   // ==================================================================================
   //  Accessibility Tweaks - Language File
   // ==================================================================================
@@ -7,56 +8,122 @@
   //    Language: English
   //    Language Code: en
   //    Translated By: Apache
-  //    Mod Version: 1.0.0
+  //    Mod Version: 2.1.0
   //    
   // ==================================================================================
 
-  // ==================================================================================
-  //  Feature: Rendered Effects
-  // ==================================================================================
-
-  "Features.RenderedEffects.Description": "Provides Quality of Life tweaks for various rendered effects.",
-
-  "Features.RenderedEffects.Dialogue.Title": "Rendered Effects Settings",
-
-  "Features.RenderedEffects.Dialogue.lblCameraShakeEnabled": "Camera Shake:",
-  "Features.RenderedEffects.Dialogue.lblCameraShakeEnabled.HoverText": "Toggles the game being able to shake the camera without player input.",
-
-  "Features.RenderedEffects.Dialogue.lblCloudsEnabled": "Clouds:",
-  "Features.RenderedEffects.Dialogue.lblCloudsEnabled.HoverText": "Toggles the rendering of clouds. [Requires Re-log]",
-
-  "Features.RenderedEffects.Dialogue.lblDustParticlesEnabled": "Dust:",
-  "Features.RenderedEffects.Dialogue.lblDustParticlesEnabled.HoverText": "Toggles the rendering of dust particle effects.",
-
-  "Features.RenderedEffects.Dialogue.lblFogEnabled": "Fog Effects:",
-  "Features.RenderedEffects.Dialogue.lblFogEnabled.HoverText": "Toggles the rendering of fog effects.",
-
-  "Features.RenderedEffects.Dialogue.lblGlitchEnabled": "Screen Glitching:",
-  "Features.RenderedEffects.Dialogue.lblGlitchEnabled.HoverText": "Toggles the rendering of the glitch effect that comes with Temporal Storms.",
-
-  "Features.RenderedEffects.Dialogue.lblHailstonesEnabled": "Hailstones:",
-  "Features.RenderedEffects.Dialogue.lblHailstonesEnabled.HoverText": "Toggles the rendering of hailstone particle effects.",
-
-  "Features.RenderedEffects.Dialogue.lblLightningEnabled": "Lightning Flashes:",
-  "Features.RenderedEffects.Dialogue.lblLightningEnabled.HoverText": "Toggles the rendering of lightning flashing light effects.",
-
-  "Features.RenderedEffects.Dialogue.lblRaindropsEnabled": "Raindrops:",
-  "Features.RenderedEffects.Dialogue.lblRaindropsEnabled.HoverText": "Toggles the rendering of raindrop particle effects.",
-
-  "Features.RenderedEffects.Dialogue.lblSnowflakesEnabled": "Snowflakes:",
-  "Features.RenderedEffects.Dialogue.lblSnowflakesEnabled.HoverText": "Toggles the rendering of snowflake particle effects.",
-
-  "Features.RenderedEffects.Dialogue.lblSoundsEnabled": "Weather Sound Effects:",
-  "Features.RenderedEffects.Dialogue.lblSoundsEnabled.HoverText": "Toggle Weather Sound Effects.",
-
-  "Features.RenderedEffects.Dialogue.lblRiftVolume": "Rift Volume:",
-  "Features.RenderedEffects.Dialogue.lblRiftVolume.HoverText": "Changes the volume of Rifts within the area.",
+  "ModTitle": "Accessibility Tweaks",
+  "ModDescription": "Quality of Life changes to aid content creators, and those with motion/light/noise affected epilepsy, or light sensitivity.",
 
   // ==================================================================================
-  //  Feature: Super Bright
+  //  Infrastructure: Accessibility Hub
   // ==================================================================================
 
-  "Features.SuperBright.Description": "Helps people with poor vision, light sensitivity, or colour-blindness. Playing around with the colour settings can give everything a warm, or cool hue.",
-  "Features.SuperBright.Enabled": "Super Bright: {0}",
-  "Features.SuperBright.BrightnessLevel": "Brightness: {0}"
+  "Features.AccessibilityHub.Dialogue.VisualEffects": "Visual Effects Settings",
+  "Features.AccessibilityHub.Dialogue.SoundEffects": "Sound Effects Settings",
+  "Features.AccessibilityHub.Dialogue.ColourCorrection": "Colour Correction",
+  "Features.AccessibilityHub.Dialogue.SceneBrightness": "Scene Brightness",
+
+  // ==================================================================================
+  //  Feature: Colour Correction
+  // ==================================================================================
+
+  "Features.ColourCorrection.Dialogue.Title": "Colour Correction",
+  "Features.ColourCorrection.Description": "Helps people with poor vision, light sensitivity, or colour-blindness. Playing around with the colour settings can give everything a warm, or cool hue.",
+
+  "Features.ColourCorrection.Dialogue.lblEnabled": "Enabled:",
+  "Features.ColourCorrection.Dialogue.lblEnabled.HoverText": "Toggles the colour correction shader.",
+
+  "Features.ColourCorrection.Dialogue.lblPreset": "Preset:",
+  "Features.ColourCorrection.Dialogue.lblPreset.HoverText": "Simulates a specific type of colour vision deficiency.",
+
+  "Features.ColourCorrection.Dialogue.lblRedBalance": "Red Balance:",
+  "Features.ColourCorrection.Dialogue.lblRedBalance.HoverText": "Changes how much Red to apply to the scene.",
+
+  "Features.ColourCorrection.Dialogue.lblGreenBalance": "Green Balance:",
+  "Features.ColourCorrection.Dialogue.lblGreenBalance.HoverText": "Changes how much Green to apply to the scene.",
+
+  "Features.ColourCorrection.Dialogue.lblBlueBalance": "Blue Balance:",
+  "Features.ColourCorrection.Dialogue.lblBlueBalance.HoverText": "Changes how much Blue to apply to the scene.",
+
+  "Features.ColourCorrection.Dialogue.lblSaturation": "Saturation:",
+  "Features.ColourCorrection.Dialogue.lblSaturation.HoverText": "Changes the colour saturation of the scene. Lower values fade colours out, higher values make colours more vibrant.",
+
+  "Features.ColourCorrection.Dialogue.btnReset": "Reset Values",
+
+  "Features.ColourCorrection.Dialogue.Presets.Trichromacy": "Trichromacy", // Normal Human Vision.
+  "Features.ColourCorrection.Dialogue.Presets.Protanopia": "Protanopia", // Red Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Deuteranopia": "Deuteranopia", // Green Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Tritanopia": "Tritanopia", // Blue Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Protanomaly": "Protanomaly", // Red Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Deuteranomaly": "Deuteranomaly", // Green Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Tritanomaly": "Tritanomaly", // Blue Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Achromatopsia": "Achromatopsia", // Greyscale
+  "Features.ColourCorrection.Dialogue.Presets.Achromatomaly": "Achromatomaly", // Greyscale (Blue-Cone)
+
+  // ==================================================================================
+  //  Feature: Scene Brightness
+  // ==================================================================================
+
+  "Features.SceneBrightness.Dialogue.Enabled": "Scene Brightness Enabled: {0}",
+  "Features.SceneBrightness.Dialogue.BrightnessLevel": "Scene Brightness Level: {0}",
+
+  "Features.SceneBrightness.Dialogue.Title": "Scene Brightness Settings",
+  "Features.SceneBrightness.Description": "Helps people with light sensitivity, and for content creators, compensating for compression rates on YouTube / Twitch.",
+
+  "Features.SceneBrightness.Dialogue.lblEnabled": "Enabled:",
+  "Features.SceneBrightness.Dialogue.lblEnabled.HoverText": "Toggle Super Bright Mode.",
+
+  "Features.SceneBrightness.Dialogue.lblBrightness": "Brightness:",
+  "Features.SceneBrightness.Dialogue.lblBrightness.HoverText": "Changes the brightness level of the scene.",
+
+  // ==================================================================================
+  //  Feature: Sound Effects
+  // ==================================================================================
+
+  "Features.SoundEffects.Dialogue.Title": "Sound Effects",
+  "Features.SoundEffects.Dialogue.RightButtonText": "Fix Broken Sounds",
+
+  "Features.SoundEffects.Dialogue.lblVolume": "Volume:",
+  "Features.SoundEffects.Dialogue.lblVolume.HoverText": "Change the relative volume of the sound effect.",
+  "Features.SoundEffects.Dialogue.lblMute": "Mute:",
+  "Features.SoundEffects.Dialogue.lblMute.HoverText": "Muted sound effects are not audiable.",
+  "Features.SoundEffects.Dialogue.lblPitch": "Pitch:",
+  "Features.SoundEffects.Dialogue.lblPitch.HoverText": "Change the relative pitch of the sound effect. This can help people with tinnitus, or other hearing loss issues.",
+  "Features.SoundEffects.Dialogue.PlaySound": "Play Sound",
+
+  // ==================================================================================
+  //  Feature: Visual Tweaks
+  // ==================================================================================
+
+  "Features.VisualTweaks.Description": "Provides Quality of Life tweaks for various rendered effects.",
+
+  "Features.VisualTweaks.Dialogue.Title": "Visual Effects Settings",
+
+  "Features.VisualTweaks.Dialogue.lblCameraShakeEnabled": "Camera Shake:",
+  "Features.VisualTweaks.Dialogue.lblCameraShakeEnabled.HoverText": "Toggles the game being able to shake the camera without player input.",
+
+  "Features.VisualTweaks.Dialogue.lblCloudsEnabled": "Clouds:",
+  "Features.VisualTweaks.Dialogue.lblCloudsEnabled.HoverText": "Toggles the rendering of clouds.",
+
+  "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled": "Dust:",
+  "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled.HoverText": "Toggles the rendering of dust particle effects.",
+
+  "Features.VisualTweaks.Dialogue.lblFogEnabled": "Fog Effects:",
+  "Features.VisualTweaks.Dialogue.lblFogEnabled.HoverText": "Toggles the rendering of fog effects.",
+
+  "Features.VisualTweaks.Dialogue.lblGlitchEnabled": "Screen Glitching:",
+  "Features.VisualTweaks.Dialogue.lblGlitchEnabled.HoverText": "Toggles the rendering of the glitch effect that comes with Temporal Storms.",
+
+  "Features.VisualTweaks.Dialogue.lblHailstonesEnabled": "Hailstones:",
+  "Features.VisualTweaks.Dialogue.lblHailstonesEnabled.HoverText": "Toggles the rendering of hailstone particle effects.",
+
+  "Features.VisualTweaks.Dialogue.lblLightningEnabled": "Lightning Flashes:",
+  "Features.VisualTweaks.Dialogue.lblLightningEnabled.HoverText": "Toggles the rendering of lightning flashing light effects.",
+
+  "Features.VisualTweaks.Dialogue.lblRaindropsEnabled": "Raindrops:",
+  "Features.VisualTweaks.Dialogue.lblRaindropsEnabled.HoverText": "Toggles the rendering of raindrop particle effects.",
+
+  "Features.VisualTweaks.Dialogue.lblSnowflakesEnabled": "Snowflakes:",
+  "Features.VisualTweaks.Dialogue.lblSnowflakesEnabled.HoverText": "Toggles the rendering of snowflake particle effects."
 }

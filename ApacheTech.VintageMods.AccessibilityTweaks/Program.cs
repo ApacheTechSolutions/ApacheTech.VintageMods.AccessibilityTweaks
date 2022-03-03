@@ -1,9 +1,4 @@
-﻿using ApacheTech.Common.DependencyInjection.Abstractions;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.RenderedEffects.Dialogue;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.SuperBright;
-using ApacheTech.VintageMods.Core.Hosting;
-using ApacheTech.VintageMods.Core.Hosting.Configuration;
+﻿using ApacheTech.VintageMods.Core.Hosting;
 using ApacheTech.VintageMods.Core.Hosting.Configuration.Extensions;
 using ApacheTech.VintageMods.Core.Services;
 using ApacheTech.VintageMods.Core.Services.FileSystem.Enums;
@@ -14,19 +9,20 @@ using Vintagestory.API.Client;
 
 namespace ApacheTech.VintageMods.AccessibilityTweaks
 {
-    public class Program : ModHost
+    /// <summary>
+    ///     Entry-point for the mod. This class will configure and build the IOC Container, and Service list for the rest of the mod.
+    ///     
+    ///     Registrations performed within this class should be global scope; by convention, features should aim to be as stand-alone as they can be.
+    /// </summary>
+    /// <remarks>
+    ///     Only one derived instance of this class should be added to any single mod within
+    ///     the VintageMods domain. This class will enable Dependency Injection, and add all
+    ///     of the domain services. Derived instances should only have minimal functionality, 
+    ///     instantiating, and adding Application specific services to the IOC Container.
+    /// </remarks>
+    /// <seealso cref="ModHost" />
+    public sealed class Program : ModHost
     {
-        /// <summary>
-        ///     Configures any services that need to be added to the IO Container, on the client side.
-        /// </summary>
-        /// <param name="services">The as-of-yet un-built services container.</param>
-        protected override void ConfigureClientModServices(IServiceCollection services)
-        {
-            services.RegisterSingleton(_ => ModSettings.World.Feature<RenderedEffectSettings>("RenderedEffects"));
-            services.RegisterSingleton(_ => ModSettings.World.Feature<SuperBrightSettings>("SuperBright"));
-            services.RegisterSingleton<RenderedEffectsDialogue>();
-        }
-
         /// <summary>
         ///     Called on the client, during initial mod loading, called before any mod receives the call to Start().
         /// </summary>
@@ -55,8 +51,8 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks
         /// </summary>
         public override void Dispose()
         {
-            base.Dispose();
             FluentChat.DisposeClientCommands();
+            base.Dispose();
         }
     }
 }

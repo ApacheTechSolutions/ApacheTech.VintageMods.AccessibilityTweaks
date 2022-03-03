@@ -1,0 +1,129 @@
+{
+  // ReSharper disable CommentTypo
+  // ReSharper disable StringLiteralTypo
+  // ==================================================================================
+  //  Accessibility Tweaks - Language File
+  // ==================================================================================
+  //
+  //    Language: Russian
+  //    Language Code: ru
+  //    Translated By: Craluminum2413
+  //    Mod Version: 2.1.0
+  //    
+  // ==================================================================================
+
+  "ModTitle": "Центр Доступности",
+  "ModDescription": "Изменения \"качества жизни\" в помощь создателям контента, а также лицам с эпилепсией, связанной с движением/светом/шумом, или чувствительностью к свету.",
+
+  // ==================================================================================
+  //  Infrastructure: Accessibility Hub
+  // ==================================================================================
+
+  "Features.AccessibilityHub.Dialogue.VisualEffects": "Настройки визуальных эффектов",
+  "Features.AccessibilityHub.Dialogue.SoundEffects": "Настройки звуковых эффектов",
+  "Features.AccessibilityHub.Dialogue.ColourCorrection": "Цветокоррекция",
+  "Features.AccessibilityHub.Dialogue.SceneBrightness": "Яркость сцены",
+
+  // ==================================================================================
+  //  Feature: Colour Correction
+  // ==================================================================================
+
+  "Features.ColourCorrection.Dialogue.Title": "Цветокоррекция",
+  "Features.ColourCorrection.Description": "Помогает людям с плохим зрением, светочувствительностью или дальтонизмом. Играя с настройками цвета, можно придать всему теплый или холодный оттенок.",
+
+  "Features.ColourCorrection.Dialogue.lblEnabled": "Включено:",
+  "Features.ColourCorrection.Dialogue.lblEnabled.HoverText": "Включает шейдер коррекции цвета.",
+
+  "Features.ColourCorrection.Dialogue.lblPreset": "Шаблон:",
+  "Features.ColourCorrection.Dialogue.lblPreset.HoverText": "Имитирует определенный тип дефицита цветового зрения.",
+
+  "Features.ColourCorrection.Dialogue.lblRedBalance": "Баланс красного:",
+  "Features.ColourCorrection.Dialogue.lblRedBalance.HoverText": "Изменяет количество красного, применяемого к сцене.",
+
+  "Features.ColourCorrection.Dialogue.lblGreenBalance": "Баланс зеленого:",
+  "Features.ColourCorrection.Dialogue.lblGreenBalance.HoverText": "Изменяет количество зеленого, применяемого к сцене.",
+
+  "Features.ColourCorrection.Dialogue.lblBlueBalance": "Баланс синего:",
+  "Features.ColourCorrection.Dialogue.lblBlueBalance.HoverText": "Изменяет количество синего, применяемого к сцене.",
+
+  "Features.ColourCorrection.Dialogue.lblSaturation": "Насыщенность:",
+  "Features.ColourCorrection.Dialogue.lblSaturation.HoverText": "Изменяет насыщенность цвета сцены. Более низкие значения приглушают цвета, более высокие значения делают цвета более яркими.",
+
+  "Features.ColourCorrection.Dialogue.btnReset": "Сброс значений",
+
+  "Features.ColourCorrection.Dialogue.Presets.Trichromacy": "Трихроматия", // Normal Human Vision.
+  "Features.ColourCorrection.Dialogue.Presets.Protanopia": "Протанопия", // Red Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Deuteranopia": "Дейтеранопия", // Green Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Tritanopia": "Тританопия", // Blue Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Protanomaly": "Протаномалия", // Red Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Deuteranomaly": "Дейтераномалия", // Green Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Tritanomaly": "Тританомалия", // Blue Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Achromatopsia": "Ахроматопсия", // Greyscale
+  "Features.ColourCorrection.Dialogue.Presets.Achromatomaly": "Ахроматомалия", // Greyscale (Blue-Cone)
+
+  // ==================================================================================
+  //  Feature: Scene Brightness
+  // ==================================================================================
+
+  "Features.SceneBrightness.Dialogue.Enabled": "Яркость сцены включена: {0}",
+  "Features.SceneBrightness.Dialogue.BrightnessLevel": "Уровень яркости сцены: {0}",
+
+  "Features.SceneBrightness.Dialogue.Title": "Настройки яркости сцены",
+  "Features.SceneBrightness.Description": "Помогает людям со светочувствительностью, а создателям контента - компенсировать степень сжатия на YouTube / Twitch.",
+
+  "Features.SceneBrightness.Dialogue.lblEnabled": "Включено:",
+  "Features.SceneBrightness.Dialogue.lblEnabled.HoverText": "Переключение режима повышенной яркости.",
+
+  "Features.SceneBrightness.Dialogue.lblBrightness": "Яркость:",
+  "Features.SceneBrightness.Dialogue.lblBrightness.HoverText": "Изменение уровня яркости сцены.",
+
+  // ==================================================================================
+  //  Feature: Sound Effects
+  // ==================================================================================
+
+  "Features.SoundEffects.Dialogue.Title": "Звуковые эффекты",
+  "Features.SoundEffects.Dialogue.RightButtonText": "Исправление сломанных звуков",
+
+  "Features.SoundEffects.Dialogue.lblVolume": "Громкость:",
+  "Features.SoundEffects.Dialogue.lblVolume.HoverText": "Изменение относительной громкости звукового эффекта.",
+  "Features.SoundEffects.Dialogue.lblMute": "Заглушить:",
+  "Features.SoundEffects.Dialogue.lblMute.HoverText": "Приглушенные звуковые эффекты не слышны.",
+  "Features.SoundEffects.Dialogue.lblPitch": "Высота:",
+  "Features.SoundEffects.Dialogue.lblPitch.HoverText": "Изменение относительной высоты тона звукового эффекта. Это может помочь людям с тиннитусом или другими проблемами со слухом.",
+  "Features.SoundEffects.Dialogue.PlaySound": "Воспроизвести звук",
+
+  // ==================================================================================
+  //  Feature: Visual Tweaks
+  // ==================================================================================
+
+  "Features.VisualTweaks.Description": "Обеспечивает настройки \"качества жизни\" для различных эффектов рендеринга.",
+
+  "Features.VisualTweaks.Dialogue.Title": "Настройки визуальных эффектов",
+
+  "Features.VisualTweaks.Dialogue.lblCameraShakeEnabled": "Тряска камеры:",
+  "Features.VisualTweaks.Dialogue.lblCameraShakeEnabled.HoverText": "Переключает возможность игры трясти камеру без участия игрока.",
+
+  "Features.VisualTweaks.Dialogue.lblCloudsEnabled": "Облака:",
+  "Features.VisualTweaks.Dialogue.lblCloudsEnabled.HoverText": "Переключает отрисовку облаков.",
+
+  "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled": "Пыль:",
+  "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled.HoverText": "Переключает отрисовку эффектов частиц пыли.",
+
+  "Features.VisualTweaks.Dialogue.lblFogEnabled": "Эффекты тумана:",
+  "Features.VisualTweaks.Dialogue.lblFogEnabled.HoverText": "Переключает отрисовку эффектов тумана.",
+
+  "Features.VisualTweaks.Dialogue.lblGlitchEnabled": "Глюки экрана:",
+  "Features.VisualTweaks.Dialogue.lblGlitchEnabled.HoverText": "Переключает отрисовку эффектов глюка, которые происходят во время темпорального шторма.",
+
+  "Features.VisualTweaks.Dialogue.lblHailstonesEnabled": "Град:",
+  "Features.VisualTweaks.Dialogue.lblHailstonesEnabled.HoverText": "Переключает отрисовку эффектов частиц града.",
+
+  "Features.VisualTweaks.Dialogue.lblLightningEnabled": "Вспышки молний:",
+  "Features.VisualTweaks.Dialogue.lblLightningEnabled.HoverText": "Переключает отрисовку световых эффектов молнии.",
+
+  "Features.VisualTweaks.Dialogue.lblRaindropsEnabled": "Дождевые капли:",
+  "Features.VisualTweaks.Dialogue.lblRaindropsEnabled.HoverText": "Переключает отрисовку эффектов частиц дождя.",
+
+  "Features.VisualTweaks.Dialogue.lblSnowflakesEnabled": "Снежинки:",
+  "Features.VisualTweaks.Dialogue.lblSnowflakesEnabled.HoverText": "Переключает отрисовку эффектов частиц снежинок."
+}

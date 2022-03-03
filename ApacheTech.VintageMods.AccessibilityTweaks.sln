@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
-VisualStudioVersion = 16.0.31911.196
+VisualStudioVersion = 16.0.32126.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ApacheTech.VintageMods.Core", "..\ApacheTech.VintageMods.Core\ApacheTech.VintageMods.Core\ApacheTech.VintageMods.Core.csproj", "{267720C6-1752-4023-9686-0BB3B38DDDDB}"
 EndProject
@@ -54,6 +54,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{267720C6-1752-4023-9686-0BB3B38DDDDB} = {6F215B0A-2467-449D-8516-89CAB6A7C215}
+		{CAF6F5F7-C2B8-4C8D-BEFA-21C555A3DAA7} = {6F215B0A-2467-449D-8516-89CAB6A7C215}
 		{EBC0233E-F9F2-4B60-B145-143CD650A63B} = {CAF6F5F7-C2B8-4C8D-BEFA-21C555A3DAA7}
 		{1F1734E8-39CA-4C87-BDA5-71C18289D926} = {29C76EF2-BEAD-49A2-BDAA-72F1B3FD94FA}
 	EndGlobalSection

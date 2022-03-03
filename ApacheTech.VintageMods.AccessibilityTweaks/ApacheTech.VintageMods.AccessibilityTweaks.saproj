@@ -15,7 +15,7 @@
             <StrongNameSigning Sign="0" />
         </Options>
         <ApplicationName>ApacheTech.VintageMods.WaypointExtensions</ApplicationName>
-        <Destination DestinationFileName=".\bin\Release\netstandard2.0\temp\ApacheTech.VintageMods.WaypointExtensions.dll" />
+        <Destination DestinationFileName=".\bin\Release\netstandard2.0\_Includes\ApacheTech.VintageMods.AccessibilityTweaks.dll" />
         <Assemblies>
             <Assembly AssemblyName="netstandard, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51">
                 <Merging />
@@ -324,11 +324,27 @@
                 <Merging />
             </Assembly>
             <Assembly AssemblyName="ApacheTech.Common.DependencyInjection, Culture=neutral, PublicKeyToken=null">
-                <Merging />
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
                 <Embedding Compress="1" Encrypt="1" />
             </Assembly>
             <Assembly AssemblyName="ApacheTech.Common.Extensions.Harmony, Culture=neutral, PublicKeyToken=null">
-                <Merging />
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
                 <Embedding Compress="1" Encrypt="1" />
             </Assembly>
             <Assembly AssemblyName="VSSurvivalMod, Culture=neutral, PublicKeyToken=null">
@@ -336,7 +352,15 @@
                 <Embedding Compress="1" Encrypt="1" />
             </Assembly>
             <Assembly AssemblyName="ApacheTech.Common.Extensions, Culture=neutral, PublicKeyToken=null">
-                <Merging />
+                <Merging Merge="1">
+                    <Pruning Prune="1">
+                        <Exclusion />
+                    </Pruning>
+                    <Obfuscation />
+                    <ControlFlow />
+                    <MemberRefsProxy />
+                    <ResourcesCompression />
+                </Merging>
                 <Embedding Compress="1" Encrypt="1" />
             </Assembly>
             <Assembly AssemblyName="VSCreativeMod, Culture=neutral, PublicKeyToken=null">
@@ -354,6 +378,14 @@
                     <ControlFlow />
                 </Merging>
                 <Embedding />
+            </Assembly>
+            <Assembly AssemblyName="Microsoft.CSharp, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                <Merging />
+                <Embedding Compress="1" Encrypt="1" />
+            </Assembly>
+            <Assembly AssemblyName="System.Dynamic, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+                <Merging />
+                <Embedding Compress="1" Encrypt="1" />
             </Assembly>
         </Assemblies>
     </Configuration>
