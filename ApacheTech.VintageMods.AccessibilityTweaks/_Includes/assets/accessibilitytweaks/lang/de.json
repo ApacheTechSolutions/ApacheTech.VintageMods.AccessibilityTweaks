@@ -1,0 +1,107 @@
+{
+  // ReSharper disable CommentTypo
+  // ReSharper disable StringLiteralTypo
+  // ==================================================================================
+  //  Accessibility Tweaks - Language File
+  // ==================================================================================
+  //
+  //    Language: German
+  //    Language Code: de
+  //    Translated By: NiclAss
+  //    Mod Version: 2.1.0
+  //    
+  // ==================================================================================
+
+  "ModTitle": "Barrierefreiheitsoptimierung",
+  "ModDescription": "Generelle Verbesserungen für Content-Ersteller und Menschen die von Bewegung/Licht/Rauschen betroffenen Epilepsien oder Lichtempfindlichkeit beeinträchtigt werden.",
+  
+  // ==================================================================================
+  //  Infrastructure: Accessibility Hub
+  // ==================================================================================
+
+  "Features.AccessibilityHub.Dialogue.VisualEffects": "Visuelle Effekte Einstellungen",
+  "Features.AccessibilityHub.Dialogue.SoundEffects": "Sound Effekte Einstellungen",
+  "Features.AccessibilityHub.Dialogue.ColourCorrection": "Farbkorrektur",
+  "Features.AccessibilityHub.Dialogue.SceneBrightness": "Szenenhelligkeit",
+
+  // ==================================================================================
+  //  Feature: Colour Correction
+  // ==================================================================================
+
+  "Features.ColourCorrection.Dialogue.Title": "Farbkorrektur",
+  "Features.ColourCorrection.Description": "Hilft Menschen mit schlechter Sehkraft, Lichtempfindlichkeit oder Farbenblindheit. Das Ändern der Farbeinstellungen kann alles einen warmen oder kühlen Ton geben.",
+  "Features.ColourCorrection.Dialogue.lblEnabled": "Aktiviert:",
+  "Features.ColourCorrection.Dialogue.lblEnabled.HoverText": "Schaltet den Farbkorrektur-Shader ein und aus.",
+  "Features.ColourCorrection.Dialogue.lblPreset": "Voreinstellung:",
+  "Features.ColourCorrection.Dialogue.lblPreset.HoverText": "Simuliert eine bestimmte Art von Farbsehschwäche.",
+  "Features.ColourCorrection.Dialogue.lblRedBalance": "Roter Anteil:",
+  "Features.ColourCorrection.Dialogue.lblRedBalance.HoverText": "Ändert, wie viel Rot auf die Szene angewendet werden soll.",
+  "Features.ColourCorrection.Dialogue.lblGreenBalance": "Grüner Anteil:",
+  "Features.ColourCorrection.Dialogue.lblGreenBalance.HoverText": "Ändert, wie viel Grün auf die Szene angewendet werden soll.",
+  "Features.ColourCorrection.Dialogue.lblBlueBalance": "Blauer Anteil:",
+  "Features.ColourCorrection.Dialogue.lblBlueBalance.HoverText": "Ändert, wie viel Blau auf die Szene angewendet werden soll.",
+  "Features.ColourCorrection.Dialogue.lblSaturation": "Sättigung:",
+  "Features.ColourCorrection.Dialogue.lblSaturation.HoverText": "Ändert die Farbsättigung der Szene. Niedrigere Werte lassen die Farben verblassen, höhere Werte machen die Farben lebendiger.",
+  "Features.ColourCorrection.Dialogue.btnReset": "Werte zurücksetzen",
+  "Features.ColourCorrection.Dialogue.Presets.Trichromacy": "Gesundes Auge", // Normal Human Vision.
+  "Features.ColourCorrection.Dialogue.Presets.Protanopia": "Farbenblindheit (Rot)", // Red Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Deuteranopia": "Farbenblindheit (Grün)", // Green Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Tritanopia": "Farbenblindheit (Blau)", // Blue Colour-Blindness
+  "Features.ColourCorrection.Dialogue.Presets.Protanomaly": "Rote Farbunempfindlichkeit", // Red Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Deuteranomaly": "Grüne Farbunempfindlichkeit", // Green Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Tritanomaly": "Blaue Farbunempfindlichkeit", // Blue Colour-Insensitivity
+  "Features.ColourCorrection.Dialogue.Presets.Achromatopsia": "Graustufen", // Greyscale
+  "Features.ColourCorrection.Dialogue.Presets.Achromatomaly": "Graustufen (Achromatomaly)", // Greyscale (Blue-Cone)
+  
+  // ==================================================================================
+  //  Feature: Scene Brightness
+  // ==================================================================================
+
+  "Features.SceneBrightness.Dialogue.Enabled": "Szenenhelligkeit aktiviert: {0}",
+  "Features.SceneBrightness.Dialogue.BrightnessLevel": "Szenen Helligkeitsstufe: {0}",
+  "Features.SceneBrightness.Dialogue.Title": "Szenen Helligkeitseinstellungen",
+  "Features.SceneBrightness.Description": "Hilft Menschen mit Lichtempfindlichkeit und kompensiert die Komprimierungsraten auf YouTube/Twitch für Content-Ersteller.",
+  "Features.SceneBrightness.Dialogue.lblEnabled": "Aktiviert:",
+  "Features.SceneBrightness.Dialogue.lblEnabled.HoverText": "Superhellen Modus umschalten.",
+  "Features.SceneBrightness.Dialogue.lblBrightness": "Helligkeit:",
+  "Features.SceneBrightness.Dialogue.lblBrightness.HoverText": "Ändert die Helligkeitsstufe der Szene.",
+  
+  // ==================================================================================
+  //  Feature: Sound Effects
+  // ==================================================================================
+
+  "Features.SoundEffects.Dialogue.Title": "Soundeffekte",
+  "Features.SoundEffects.Dialogue.RightButtonText": "Defekte Töne beheben",
+  "Features.SoundEffects.Dialogue.lblVolume": "Lautstärke:",
+  "Features.SoundEffects.Dialogue.lblVolume.HoverText": "Ändert die relative Lautstärke von Soundeffekten.",
+  "Features.SoundEffects.Dialogue.lblMute": "Stumm schalten:",
+  "Features.SoundEffects.Dialogue.lblMute.HoverText": "Stummgeschaltete Soundeffekte sind nicht hörbar.",
+  "Features.SoundEffects.Dialogue.lblPitch": "Tonhöhe:",
+  "Features.SoundEffects.Dialogue.lblPitch.HoverText": "Ändert die relative Tonhöhe des Soundeffekts. Dies kann Menschen mit Tinnitus oder anderen Problemen mit Hörverlust helfen.",
+  "Features.SoundEffects.Dialogue.PlaySound": "Ton abspielen",
+  
+  // ==================================================================================
+  //  Feature: Visual Tweaks
+  // ==================================================================================
+
+  "Features.VisualTweaks.Description": "Verbessert einige verschiedene gerenderte Effekte.",
+  "Features.VisualTweaks.Dialogue.Title": "Visuelle Effekte Einstellungen",
+  "Features.VisualTweaks.Dialogue.lblCameraShakeEnabled": "Kamerawackeln:",
+  "Features.VisualTweaks.Dialogue.lblCameraShakeEnabled.HoverText": "Bestimmt ob das Spiel die Kamera ohne Spieler Eingaben bewegen darf.",
+  "Features.VisualTweaks.Dialogue.lblCloudsEnabled": "Wolken:",
+  "Features.VisualTweaks.Dialogue.lblCloudsEnabled.HoverText": "Schaltet das Rendern von Wolken um.",
+  "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled": "Staub:",
+  "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled.HoverText": "Schaltet das Rendern von Staubpartikel Effekten um.",
+  "Features.VisualTweaks.Dialogue.lblFogEnabled": "Nebeleffekte:",
+  "Features.VisualTweaks.Dialogue.lblFogEnabled.HoverText": "Schaltet das Rendern von Nebeleffekten um.",
+  "Features.VisualTweaks.Dialogue.lblGlitchEnabled": "Glitch-Effekt:",
+  "Features.VisualTweaks.Dialogue.lblGlitchEnabled.HoverText": "Schaltet das Rendering des Glitch-Effekts um, der mit Temporalen Stürmen ausgelöst wird.",
+  "Features.VisualTweaks.Dialogue.lblHailstonesEnabled": "Hagelkörner:",
+  "Features.VisualTweaks.Dialogue.lblHailstonesEnabled.HoverText": "Schaltet das Rendern von Hagelkörner Effekten um.",
+  "Features.VisualTweaks.Dialogue.lblLightningEnabled": "Blitz:",
+  "Features.VisualTweaks.Dialogue.lblLightningEnabled.HoverText": "Schaltet das Rendern von blinkenden Lichteffekten um.",
+  "Features.VisualTweaks.Dialogue.lblRaindropsEnabled": "Regentropfen:",
+  "Features.VisualTweaks.Dialogue.lblRaindropsEnabled.HoverText": "Schaltet das Rendern von Regenkörner Effekten um.",
+  "Features.VisualTweaks.Dialogue.lblSnowflakesEnabled": "Schneeflocken:",
+  "Features.VisualTweaks.Dialogue.lblSnowflakesEnabled.HoverText": "Schaltet das Rendern von Schneeflocken Effekten um."
+}
