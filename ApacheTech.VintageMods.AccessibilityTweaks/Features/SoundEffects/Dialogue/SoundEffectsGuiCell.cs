@@ -1,4 +1,5 @@
 ﻿using System;
+using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride.Dialogue;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using Cairo;
 using Vintagestory.API.Client;

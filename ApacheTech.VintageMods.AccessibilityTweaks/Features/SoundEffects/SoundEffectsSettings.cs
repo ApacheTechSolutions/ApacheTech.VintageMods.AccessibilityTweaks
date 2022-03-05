@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Model;
+using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride;
 using Newtonsoft.Json;
 
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects

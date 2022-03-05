@@ -1,13 +1,14 @@
 ﻿using System;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Model;
 using ApacheTech.VintageMods.Core.Abstractions.GUI;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
+using ApacheTech.VintageMods.Core.Extensions.Game;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
+using Vintagestory.Client.NoObf;
 
 // ReSharper disable ClassNeverInstantiated.Global
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialogue
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride.Dialogue
 {
     /// <summary>
     ///     User interface for changing the volume and pitch settings for an individual sound effect within the game.
@@ -112,8 +113,18 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialo
 
         private bool OnPlayButtonPressed()
         {
-            ApiEx.Client.World.PlaySoundFor(AssetLocation.Create(_cell.Path), ApiEx.Client.World.Player, true, 0f, _cell.Muted ? 0f : _cell.VolumeMultiplier);
-            return false;
+            var asset = AssetLocation.Create(_cell.Path);
+
+            if (asset.Category == AssetCategory.sounds)
+            {
+                ApiEx.Client.World.PlaySoundFor(asset, ApiEx.Client.World.Player, true, 0f, _cell.Muted ? 0f : _cell.VolumeMultiplier);
+            }
+
+            if (asset.Category != AssetCategory.music) return true;
+
+            ApiEx.Client.CurrentMusicTrack?.FadeOut(0);
+            ApiEx.Client.GetVanillaClientSystem<SystemMusicEngine>().StartTrack(asset, 1000, EnumSoundType.Sound);
+            return true;
         }
 
         private bool OnOkButtonPressed()

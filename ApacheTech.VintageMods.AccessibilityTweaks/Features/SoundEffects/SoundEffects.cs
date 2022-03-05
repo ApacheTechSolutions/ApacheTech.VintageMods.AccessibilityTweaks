@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using ApacheTech.Common.Extensions.Harmony;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Model;
 using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patches;
+using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride;
 using ApacheTech.VintageMods.Core.Abstractions.ModSystems;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Extensions.DotNet;
@@ -59,7 +59,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects
         {
             var settings = ModServices.IOC.Resolve<SoundEffectsSettings>();
             var defaults = ApiEx.Client.Assets.AllAssets
-                .Where(p => p.Key.Category == AssetCategory.sounds && p.Key.Path.EndsWith(".ogg"));
+                .Where(p => (p.Key.Category == AssetCategory.sounds || p.Key.Category == AssetCategory.music) && p.Key.Path.EndsWith(".ogg"));
             foreach (var entry in defaults)
             {
                 var path = entry.Key.ToString();

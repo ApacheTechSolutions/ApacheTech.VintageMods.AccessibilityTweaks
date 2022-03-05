@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Model
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride
 {
     /// <summary>
     ///     Represents the overridden audio settings for an individual game sound file.

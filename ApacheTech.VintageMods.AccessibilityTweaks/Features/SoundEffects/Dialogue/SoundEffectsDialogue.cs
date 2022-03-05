@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ApacheTech.Common.Extensions.Harmony;
 using ApacheTech.Common.Extensions.System;
+using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride.Dialogue;
 using ApacheTech.VintageMods.Core.Abstractions.GUI;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Extensions.Game;

@@ -6,6 +6,7 @@ using ApacheTech.VintageMods.Core.Abstractions.GUI;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Services;
 using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 using Vintagestory.API.Config;
 
 // ReSharper disable ClassNeverInstantiated.Global
@@ -18,6 +19,10 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.Accessibilit
     /// <seealso cref="GenericDialogue" />
     public sealed class AccessibilityHubDialogue : GenericDialogue
     {
+        private float _row;
+        private const float ButtonWidth = 300f;
+        private const float HeightOffset = 0f;
+
         /// <summary>
         /// 	Initialises a new instance of the <see cref="AccessibilityHubDialogue"/> class.
         /// </summary>
@@ -46,17 +51,18 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.Accessibilit
         /// <param name="composer">The composer.</param>
         protected override void ComposeBody(GuiComposer composer)
         {
-            var row = 0f;
-            const float width = 300f;
-            const float heightOffset = 0f;
+            AddButton(composer, LangEntry("VisualEffects"), OnVisualEffectsButtonPressed);
+            AddButton(composer, LangEntry("SoundEffects"), OnSoundEffectsButtonPressed);
+            AddButton(composer, LangEntry("ColourCorrection"), OnColourCorrectionButtonPressed);
+            AddButton(composer, LangEntry("SceneBrightness"), OnSceneBrightnessButtonPressed);
+            IncrementRow(ref _row);
+            AddButton(composer, LangEx.GetCore("common-phrases.donate"), OnDonateButtonPressed);
+            AddButton(composer, Lang.Get("pause-back2game"), TryClose);
+        }
 
-            composer.AddSmallButton(LangEntry("VisualEffects"), OnVisualEffectsButtonPressed, ButtonBounds(ref row, width, heightOffset));
-            composer.AddSmallButton(LangEntry("SoundEffects"), OnSoundEffectsButtonPressed, ButtonBounds(ref row, width, heightOffset));
-            composer.AddSmallButton(LangEntry("ColourCorrection"), OnColourCorrectionButtonPressed, ButtonBounds(ref row, width, heightOffset));
-            composer.AddSmallButton(LangEntry("SceneBrightness"), OnSceneBrightnessButtonPressed, ButtonBounds(ref row, width, heightOffset));
-            IncrementRow(ref row);
-            composer.AddSmallButton(LangEx.GetCore("common-phrases.donate"), OnDonateButtonPressed, ButtonBounds(ref row, width, heightOffset));
-            composer.AddSmallButton(Lang.Get("pause-back2game"), TryClose, ButtonBounds(ref row, width, heightOffset));
+        private void AddButton(GuiComposer composer, string langEntry, ActionConsumable onClick)
+        {
+            composer.AddSmallButton(langEntry, onClick, ButtonBounds(ref _row, ButtonWidth, HeightOffset));
         }
 
         private static void IncrementRow(ref float row)
@@ -84,7 +90,6 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.Accessibilit
             ModServices.IOC.Resolve<SoundEffectsDialogue>().Toggle();
             return true;
         }
-
         private static bool OnColourCorrectionButtonPressed()
         {
             ModServices.IOC.Resolve<ColourCorrectionDialogue>().Toggle();

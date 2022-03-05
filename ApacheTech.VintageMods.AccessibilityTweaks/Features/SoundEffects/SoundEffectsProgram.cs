@@ -19,7 +19,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects
     ///         - Game sounds mute, when the game window loses focus.
     /// </summary>
     /// <seealso cref="ClientFeatureRegistrar" />
-    public sealed class SoundEffectsProgram : ClientFeatureRegistrar
+    public sealed class MusicLibraryProgram : ClientFeatureRegistrar
     {
         /// <summary>
         ///     Allows a mod to include Singleton, or Transient services to the IOC Container.

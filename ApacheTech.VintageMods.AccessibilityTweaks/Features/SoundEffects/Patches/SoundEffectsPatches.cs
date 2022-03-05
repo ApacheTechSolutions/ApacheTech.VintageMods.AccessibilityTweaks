@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Reflection;
 using ApacheTech.Common.Extensions.System;
-using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Model;
+using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride;
 using ApacheTech.VintageMods.Core.Abstractions.Features;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Extensions.DotNet;
@@ -60,10 +60,11 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patch
 
             Debug.Assert(volumeMultiplier is not null, "Cannot find volume multiplier method.");
 
-            ModServices.Harmony.Default.Patch(constructor,
-                postfix: new HarmonyMethod(
-                    typeof(SoundEffectsPatches)
-                        .GetMethod(nameof(Patch_ILoadedSound_Constructor_Postfix))));
+            const string methodName = nameof(Patch_ILoadedSound_Constructor_Postfix);
+            var postfixMethod = typeof(SoundEffectsPatches).GetMethod(methodName);
+            var harmonyMethod = new HarmonyMethod(postfixMethod);
+
+            ModServices.Harmony.Default.Patch(constructor, postfix: harmonyMethod);
 
             ModServices.Harmony.Default.Patch(volumeMultiplier,
                 postfix: new HarmonyMethod(
@@ -75,7 +76,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patch
         ///     Applies a <see cref="HarmonyPostfix"/> patch to the constructor of the <see cref="ILoadedSound"/> concrete class.
         /// </summary>
         /// <param name="__instance">The instance of <see cref="ILoadedSound"/> this patch has been applied to.</param>
-        private static void Patch_ILoadedSound_Constructor_Postfix(ILoadedSound __instance)
+        public static void Patch_ILoadedSound_Constructor_Postfix(ILoadedSound __instance)
         {
             var path = __instance.Params.Location?.ToString();
             var volumeOverride = Settings.SoundAssets.FirstOrNull(p => p.Key == path);
@@ -88,7 +89,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patch
         /// </summary>
         /// <param name="__instance">The instance of <see cref="ILoadedSound"/> this patch has been applied to.</param>
         /// <param name="__result">The <see cref="float"/> value passed back from the original method.</param>
-        private static void Patch_ILoadedSound_VolumeMultiplier_Getter_Postfix(ILoadedSound __instance, ref float __result)
+        public static void Patch_ILoadedSound_VolumeMultiplier_Getter_Postfix(ILoadedSound __instance, ref float __result)
         {
             if (Settings.MuteAll) __result = 0f;
             if (!DynamicEx.HasProperty(__instance.Params.DynamicProperties(), "VolumeOverride")) return;

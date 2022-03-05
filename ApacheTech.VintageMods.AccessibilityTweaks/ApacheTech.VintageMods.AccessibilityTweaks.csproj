@@ -34,6 +34,9 @@
 	  <Compile Include="Infrastructure\AccessibilityHub\AccessibilityHub.cs" />
 	  <Compile Include="Infrastructure\AccessibilityHub\AccessibilityHubProgram.cs" />
 	  <Compile Include="Infrastructure\AccessibilityHub\Dialogue\AccessibilityHubDialogue.cs" />
+	  <Compile Include="Infrastructure\VolumeOverride\Dialogue\EditVolumeDialogue.cs" />
+	  <Compile Include="Infrastructure\VolumeOverride\Dialogue\VolumeOverrideCellEntry.cs" />
+	  <Compile Include="Infrastructure\VolumeOverride\VolumeOverride.cs" />
 	</ItemGroup>
 
 	<ItemGroup>

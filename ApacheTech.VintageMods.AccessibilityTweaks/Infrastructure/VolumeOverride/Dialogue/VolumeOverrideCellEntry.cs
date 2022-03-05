@@ -1,7 +1,7 @@
-﻿using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Model;
+﻿using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialogue;
 using Vintagestory.API.Client;
 
-namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialogue
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride.Dialogue
 {
     /// <summary>
     ///     Defines the information stored within a single GUI Cell Element.
