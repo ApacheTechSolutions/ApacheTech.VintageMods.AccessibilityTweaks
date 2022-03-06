@@ -81,12 +81,12 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
 
             capi.Render.ShaderUniforms.DamageVignetting = GameMath.Clamp(GameMath.Clamp(___strength / 2, 0.5f, 3.5f) * ((float)val / Math.Max(1, ___duration)) + lowHealthness, 0, 1.5f);
 
+            var freezing = eplr.Entity.WatchedAttributes.GetFloat("freezingEffectStrength");
+
+            ___curFreezingVal += (freezing - ___curFreezingVal) * dt;
+
             if (Settings.CameraShakeEnabled)
             {
-                var freezing = eplr.Entity.WatchedAttributes.GetFloat("freezingEffectStrength");
-
-                ___curFreezingVal += (freezing - ___curFreezingVal) * dt;
-
                 if (___curFreezingVal > 0.1 && eplr.CameraMode == EnumCameraMode.FirstPerson)
                 {
                     var ellapseSec = (float)(capi.InWorldEllapsedMilliseconds / 1000.0);
