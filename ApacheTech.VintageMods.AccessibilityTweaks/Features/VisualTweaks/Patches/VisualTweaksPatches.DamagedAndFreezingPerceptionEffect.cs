@@ -1,10 +1,7 @@
 ﻿using System;
-using ApacheTech.VintageMods.Core.Abstractions.Features;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Client;
-using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
 // ReSharper disable UnusedMember.Global
@@ -19,8 +16,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
     ///     Harmony Patches for the <see cref="DamagedAndFreezingPerceptionEffect"/> class. This class cannot be inherited.
     /// </summary>
     /// <seealso cref="VisualTweaksSettings" />
-    [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class DamagedAndFreezingPerceptionEffectPatches : WorldSettingsConsumer<VisualTweaksSettings>
+    public sealed partial class VisualTweaksPatches
     {
         /// <summary>
         ///     Applies a <see cref="HarmonyPrefix"/> patch to the "OnBeforeGameRender" method of the <see cref="DamagedAndFreezingPerceptionEffect"/> class.

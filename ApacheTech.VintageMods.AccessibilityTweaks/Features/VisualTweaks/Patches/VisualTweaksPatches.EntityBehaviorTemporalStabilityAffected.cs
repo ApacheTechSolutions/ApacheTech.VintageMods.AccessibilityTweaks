@@ -2,8 +2,6 @@
 using System.Linq;
 using ApacheTech.Common.Extensions.Harmony;
 using ApacheTech.Common.Extensions.System;
-using ApacheTech.VintageMods.Core.Abstractions.Features;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
 using Vintagestory.API.Common;
 using Vintagestory.GameContent;
@@ -18,8 +16,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
     ///     Harmony Patches for the <see cref="EntityBehaviorTemporalStabilityAffected"/> class. This class cannot be inherited.
     /// </summary>
     /// <seealso cref="VisualTweaksSettings" />
-    [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class EntityBehaviorTemporalStabilityAffectedPatches : WorldSettingsConsumer<VisualTweaksSettings>
+    public sealed partial class VisualTweaksPatches
     {
         private static SimpleParticleProperties _rustParticles;
 

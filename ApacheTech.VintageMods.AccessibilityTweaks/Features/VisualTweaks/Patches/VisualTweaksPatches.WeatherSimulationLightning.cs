@@ -1,7 +1,4 @@
-﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
-using HarmonyLib;
-using Vintagestory.API.Common;
+﻿using HarmonyLib;
 using Vintagestory.GameContent;
 
 // ReSharper disable UnusedType.Global
@@ -13,8 +10,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
     ///     Harmony Patches for the <see cref="WeatherSimulationLightning"/> class. This class cannot be inherited.
     /// </summary>
     /// <seealso cref="VisualTweaksSettings" />
-    [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class WeatherSimulationLightningPatches : WorldSettingsConsumer<VisualTweaksSettings>
+    public sealed partial class VisualTweaksPatches
     {
         /// <summary>
         ///     Applies a <see cref="HarmonyPrefix"/> patch to the "ClientTick" method in <see cref="WeatherSimulationLightning"/> class.

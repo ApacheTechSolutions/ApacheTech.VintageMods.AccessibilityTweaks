@@ -1,11 +1,13 @@
 ﻿// ReSharper disable UnusedAutoPropertyAccessor.Global
 
+using ApacheTech.VintageMods.Core.Abstractions.Features;
+
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks
 {
     /// <summary>
     ///     Contains all the settings that can be set by the `.wt` chat command. This class cannot be inherited.
     /// </summary>
-    public sealed class VisualTweaksSettings
+    public sealed class VisualTweaksSettings : FeatureSettings
     {
         /// <summary>
         ///     Gets or sets a value indicating whether rain particle effects should be rendered, or not.

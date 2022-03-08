@@ -1,9 +1,13 @@
-﻿namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SceneBrightness
+﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
+using Newtonsoft.Json;
+
+namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SceneBrightness
 {
     /// <summary>
     ///     Contains all the settings that can be set by the `.superBright` chat command. This class cannot be inherited.
     /// </summary>
-    public sealed class SceneBrightnessSettings
+    [JsonObject]
+    public sealed class SceneBrightnessSettings : FeatureSettings
     {
         /// <summary>
         ///     Gets or sets a value indicating whether SuperBright mode is enabled.

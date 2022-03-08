@@ -1,9 +1,6 @@
-﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
-using ApacheTech.VintageMods.Core.Common.StaticHelpers;
+﻿using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Extensions;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using HarmonyLib;
-using Vintagestory.API.Common;
 using Vintagestory.GameContent;
 
 // ReSharper disable UnusedType.Global
@@ -16,8 +13,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
     ///     Harmony Patches for the <see cref="SystemTemporalStability"/> class. This class cannot be inherited.
     /// </summary>
     /// <seealso cref="VisualTweaksSettings" />
-    [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class SystemTemporalStabilityPatches : WorldSettingsConsumer<VisualTweaksSettings>
+    public sealed partial class VisualTweaksPatches
     {
         private static bool _previousStormActive;
         private static bool _shadersReloaded;

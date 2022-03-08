@@ -1,8 +1,5 @@
-﻿using ApacheTech.VintageMods.Core.Abstractions.Features;
-using ApacheTech.VintageMods.Core.Common.StaticHelpers;
-using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
+﻿using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using HarmonyLib;
-using Vintagestory.API.Common;
 using Vintagestory.Client.NoObf;
 using Vintagestory.GameContent;
 
@@ -16,8 +13,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
     ///     Harmony Patches for the <see cref="ShaderRegistry"/> class. This class cannot be inherited.
     /// </summary>
     /// <seealso cref="VisualTweaksSettings" />
-    [HarmonySidedPatch(EnumAppSide.Client)]
-    public sealed class ShaderRegistryPatches : WorldSettingsConsumer<VisualTweaksSettings>
+    public sealed partial class VisualTweaksPatches
     {
         /// <summary>
         ///     Applies a <see cref="HarmonyPostfix"/> patch to the "onServerData" method of the <see cref="SystemTemporalStability"/> class.

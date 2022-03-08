@@ -1,16 +1,13 @@
 ﻿using System.Linq;
-using ApacheTech.Common.Extensions.Harmony;
 using ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patches;
 using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride;
 using ApacheTech.VintageMods.Core.Abstractions.ModSystems;
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using ApacheTech.VintageMods.Core.Extensions.DotNet;
-using ApacheTech.VintageMods.Core.Extensions.Game;
 using ApacheTech.VintageMods.Core.Hosting.Configuration;
 using ApacheTech.VintageMods.Core.Services;
 using Vintagestory.API.Client;
 using Vintagestory.API.Common;
-using Vintagestory.Client.NoObf;
 
 // ReSharper disable UnusedType.Global
 
@@ -30,23 +27,12 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects
     /// <seealso cref="ClientModSystem" />
     public sealed class SoundEffects : ClientModSystem
     {
-        private SoundEffectsSettings _settings;
-
         /// <summary>
         ///     Minor convenience method to save yourself the check for/cast to ICoreClientAPI in Start()
         /// </summary>
         /// <param name="capi">The game's core client API.</param>
         public override void StartClientSide(ICoreClientAPI capi)
         {
-            _settings = ModServices.IOC.Resolve<SoundEffectsSettings>();
-
-            // Stop all sounds on pause.
-            capi.Event.PauseResume += OnPauseOrResume;
-            
-            // Stop all sounds on loss of focus.
-            var platform = ApiEx.ClientMain.GetField<ClientPlatformAbstract>("Platform");
-            platform.RegisterOnFocusChange(OnFocusChanged);
-
             // Populate settings JSON file. 
             UpdateVolumeOverrideSettings();
 
@@ -66,17 +52,6 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects
                 settings.SoundAssets.AddIfNotPresent(path, new VolumeOverride { Path = path });
             }
             ModSettings.World.Save(settings);
-        }
-
-        private void OnFocusChanged(bool isFocussed)
-        {
-            _settings.MuteAll = !isFocussed;
-            if (!isFocussed) ApiEx.ClientMain.StopAllSounds();
-        }
-
-        private void OnPauseOrResume(bool isPaused)
-        {
-            if (isPaused) ApiEx.ClientMain.StopAllSounds();
         }
     }
 }

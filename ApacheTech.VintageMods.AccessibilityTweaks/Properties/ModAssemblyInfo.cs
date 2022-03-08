@@ -11,7 +11,7 @@ using Vintagestory.API.Common;
     "accessibilitytweaks",
     Description = "Quality of Life changes to aid content creators, and those with motion/light/noise affected epilepsy, or light sensitivity.",
     Side = "Client",
-    Version = "2.1.0",
+    Version = "2.1.1",
     NetworkVersion = "1.0.0",
     IconPath = "modicon.png",
     Website = "https://apachetech.co.uk",
@@ -23,5 +23,5 @@ using Vintagestory.API.Common;
     ModName = "Accessibility Tweaks",
     RootDirectoryName = "AccessibilityTweaks",
     NetworkVersion = "1.0.0",
-    Version = "2.1.0", 
+    Version = "2.1.1", 
     Side = EnumAppSide.Client)]

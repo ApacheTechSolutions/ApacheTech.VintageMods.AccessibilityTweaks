@@ -21,34 +21,30 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SceneBrightness
     /// <seealso cref="ClientModSystem" />
     public sealed class SceneBrightness : ClientModSystem
     {
-        private SceneBrightnessSettings _settings;
-
         /// <summary>
         ///     Minor convenience method to save yourself the check for/cast to ICoreClientAPI in Start()
         /// </summary>
         /// <param name="api">The API.</param>
         public override void StartClientSide(ICoreClientAPI api)
         {
-            _settings = ModServices.IOC.Resolve<SceneBrightnessSettings>();
-            _settings.Enabled = false;
-
             FluentChat.ClientCommand("nv")
                 .RegisterWith(api)
                 .HasDescription(LangEx.FeatureString("SceneBrightness", "Description"))
                 .HasDefaultHandler(ToggleSuperBright);
         }
 
-        private void ToggleSuperBright(int groupId, CmdArgs args)
+        private static void ToggleSuperBright(int groupId, CmdArgs args)
         {
+            var settings = ModServices.IOC.Resolve<SceneBrightnessSettings>();
             if (args.Length == 0)
             {
-                _settings.Enabled = !_settings.Enabled;
-                var enabledMessage = LangEx.FeatureString("SceneBrightness", "Enabled", LangEx.BooleanString(_settings.Enabled));
+                settings.Enabled = !settings.Enabled;
+                var enabledMessage = LangEx.FeatureString("SceneBrightness", "Enabled", LangEx.BooleanString(settings.Enabled));
                 ApiEx.Client.ShowChatMessage(enabledMessage);
                 return;
             }
-            _settings.Brightness = GameMath.Clamp(args.PopFloat().GetValueOrDefault(0.1f), 0f, 1f);
-            var brightnessLevelMessage = LangEx.FeatureString("SceneBrightness", "BrightnessLevel", _settings.Brightness);
+            settings.Brightness = GameMath.Clamp(args.PopFloat().GetValueOrDefault(0.1f), 0f, 1f);
+            var brightnessLevelMessage = LangEx.FeatureString("SceneBrightness", "BrightnessLevel", settings.Brightness);
             ApiEx.Client.ShowChatMessage(brightnessLevelMessage);
         }
     }

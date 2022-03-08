@@ -31,6 +31,11 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<ProjectCapability Include="DynamicDependentFile" />
+		<ProjectCapability Include="DynamicFileNesting" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <Compile Include="Infrastructure\AccessibilityHub\AccessibilityHub.cs" />
 	  <Compile Include="Infrastructure\AccessibilityHub\AccessibilityHubProgram.cs" />
 	  <Compile Include="Infrastructure\AccessibilityHub\Dialogue\AccessibilityHubDialogue.cs" />

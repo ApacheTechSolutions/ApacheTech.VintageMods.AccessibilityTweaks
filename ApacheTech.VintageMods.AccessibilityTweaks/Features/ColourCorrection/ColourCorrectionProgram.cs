@@ -28,7 +28,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.ColourCorrection
             services.RegisterFeatureWorldSettings<ColourCorrectionSettings>();
 
             services.RegisterSingleton<ColourCorrectionRenderer>();
-            services.RegisterTransient<ColourCorrectionShaderProgram>();
+            services.RegisterSingleton<ColourCorrectionShaderProgram>();
 
             services.RegisterTransient<ColourCorrectionDialogue>();
         }

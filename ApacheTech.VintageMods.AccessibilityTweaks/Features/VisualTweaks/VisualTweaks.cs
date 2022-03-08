@@ -44,6 +44,4 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks
                 .HasDefaultHandler((_, _) => ModServices.IOC.Resolve<VisualTweaksDialogue>().Toggle());
         }
     }
-
-
 }

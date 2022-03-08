@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverride;
+using ApacheTech.VintageMods.Core.Abstractions.Features;
 using Newtonsoft.Json;
 
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects
@@ -8,7 +9,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects
     ///     Represents the settings for the Sound Effects feature.
     /// </summary>
     [JsonObject]
-    public sealed class SoundEffectsSettings
+    public sealed class SoundEffectsSettings : FeatureSettings
     {
         /// <summary>
         ///     Gets or sets a value indicating whether to temporarily mute all game sounds.
