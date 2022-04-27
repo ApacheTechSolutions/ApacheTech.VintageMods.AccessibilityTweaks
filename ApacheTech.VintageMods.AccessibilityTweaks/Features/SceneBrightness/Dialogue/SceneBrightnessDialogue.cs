@@ -23,7 +23,8 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SceneBrightness.Di
         public SceneBrightnessDialogue(ICoreClientAPI capi, SceneBrightnessSettings settings) : base(capi, settings)
         {
             Alignment = EnumDialogArea.CenterMiddle;
-            Modal = false;
+            ModalTransparency = 0.0f;
+            Movable = false;
         }
 
         /// <summary>

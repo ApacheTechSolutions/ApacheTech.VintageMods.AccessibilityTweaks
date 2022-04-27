@@ -84,6 +84,11 @@
   "Features.SoundEffects.Dialogue.Title": "Sound Effects",
   "Features.SoundEffects.Dialogue.RightButtonText": "Fix Broken Sounds",
 
+  "Features.SoundEffects.Dialogue.lblSearch": "Search:",
+  "Features.SoundEffects.Dialogue.lblSearch.HoverText": "Filter sound effects, by name.",
+
+  "Features.SoundEffects.Dialogue.lblCurrentlyPlaying": "Only Show Currently Playing Sounds:",
+
   "Features.SoundEffects.Dialogue.lblVolume": "Volume:",
   "Features.SoundEffects.Dialogue.lblVolume.HoverText": "Change the relative volume of the sound effect.",
   "Features.SoundEffects.Dialogue.lblMute": "Mute:",
@@ -111,6 +116,9 @@
 
   "Features.VisualTweaks.Dialogue.lblFogEnabled": "Fog Effects:",
   "Features.VisualTweaks.Dialogue.lblFogEnabled.HoverText": "Toggles the rendering of fog effects.",
+
+  "Features.VisualTweaks.Dialogue.lblMistEnabled": "Mist Effects:",
+  "Features.VisualTweaks.Dialogue.lblMistEnabled.HoverText": "Toggles the rendering of mist effects.",
 
   "Features.VisualTweaks.Dialogue.lblGlitchEnabled": "Screen Glitching:",
   "Features.VisualTweaks.Dialogue.lblGlitchEnabled.HoverText": "Toggles the rendering of the glitch effect that comes with Temporal Storms.",

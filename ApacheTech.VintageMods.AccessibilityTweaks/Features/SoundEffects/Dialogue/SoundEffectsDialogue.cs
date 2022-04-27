@@ -29,6 +29,8 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialo
         private List<VolumeOverrideCellEntry> _cells = new();
 
         private GuiElementCellList<VolumeOverrideCellEntry> _cellList;
+        private bool _activeSoundsOnly;
+        private string _filterString;
 
         /// <summary>
         /// 	Initialises a new instance of the <see cref="SoundEffectsDialogue" /> class.
@@ -132,6 +134,8 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialo
             var outerBounds = ElementBounds
                 .Fixed(EnumDialogArea.LeftTop, 0, 0, scaledWidth, 35);
 
+            AddSearchBox(composer, ref outerBounds);
+
             var insetBounds = outerBounds
                 .BelowCopy(0, 3)
                 .WithFixedSize(scaledWidth, scaledHeight);
@@ -155,10 +159,62 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialo
                 .AddSmallButton(LangEntry("RightButtonText"), OnRightButtonPressed,
                     controlRowBoundsCentreFixed.FixedUnder(insetBounds, 10.0));
         }
+        
+        private void AddSearchBox(GuiComposer composer, ref ElementBounds bounds)
+        {
+            const int switchSize = 30;
+            const int gapBetweenRows = 20;
+            var font = CairoFont.WhiteSmallText();
+            var lblSearchText = LangEntry("lblSearch");
+            var lblCurrentlyPlayingText = LangEntry("lblCurrentlyPlaying");
+
+            var lblSearchTextLength = font.GetTextExtents(lblSearchText).Width + 10;
+            var lblCurrentlyPlayingTextLength = font.GetTextExtents(lblCurrentlyPlayingText).Width + 10;
+
+            var left = ElementBounds.Fixed(0, 5, lblSearchTextLength, switchSize).FixedUnder(bounds, 3);
+            var right = ElementBounds.Fixed(lblSearchTextLength + 10, 0, 200, switchSize).FixedUnder(bounds, 3);
+
+            composer.AddStaticText(lblSearchText, font, EnumTextOrientation.Left, left);
+            composer.AddAutoSizeHoverText(LangEntry("lblSearch.HoverText"), font, 160, left);
+            composer.AddTextInput(right, OnFilterTextChanged);
+
+            right = ElementBounds.FixedSize(EnumDialogArea.RightFixed, switchSize, switchSize).FixedUnder(bounds, 3);
+            left = ElementBounds.FixedSize(EnumDialogArea.RightFixed, lblCurrentlyPlayingTextLength, switchSize).FixedUnder(bounds, 8).WithFixedOffset(-40, 0);
+
+            composer.AddStaticText(lblCurrentlyPlayingText, font, EnumTextOrientation.Left, left);
+            composer.AddSwitch(OnCurrentlyPlayingToggle, right);
+
+            bounds = bounds.BelowCopy(fixedDeltaY: gapBetweenRows);
+        }
 
         #endregion
 
         #region Control Event Handlers
+
+        private void OnCurrentlyPlayingToggle(bool state)
+        {
+            _activeSoundsOnly = state;
+            FilterCells();
+            RefreshValues();
+        }
+
+        private void OnFilterTextChanged(string filterString)
+        {
+            _filterString = filterString;
+            FilterCells();
+            RefreshValues();
+        }
+
+        private void FilterCells()
+        {
+            bool Filter(IGuiElementCell cell)
+            {
+                return (string.IsNullOrWhiteSpace(_filterString) || ((SoundEffectsGuiCell)cell).Cell.Title.Contains(_filterString)) &&
+                       (!_activeSoundsOnly || _activeSounds.Any(p => p.Params.Location.ToString() == ((SoundEffectsGuiCell)cell).Cell.Title));
+            }
+
+            _cellList.CallMethod("FilterCells", (Func<IGuiElementCell, bool>)Filter);
+        }
 
         /// <summary>
         ///     Called when the GUI needs to refresh or create a cell to display to the user. 

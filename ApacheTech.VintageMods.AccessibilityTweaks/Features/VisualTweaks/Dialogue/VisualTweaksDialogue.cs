@@ -104,6 +104,13 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Dialo
             left = left.BelowCopy(fixedDeltaY: gapBetweenRows);
             right = right.BelowCopy(fixedDeltaY: gapBetweenRows);
 
+            composer.AddStaticText(LangEx.FeatureString(FeatureName, $"Dialogue.lbl{nameof(Settings.MistEnabled)}"), font.Clone().WithOrientation(EnumTextOrientation.Right), left);
+            composer.AddHoverText(LangEx.FeatureString(FeatureName, $"Dialogue.lbl{nameof(Settings.MistEnabled)}.HoverText"), font, 260, left);
+            composer.AddSwitch(OnMistEnabledChanged, right.FlatCopy().WithFixedWidth(switchSize), $"btn{nameof(Settings.MistEnabled)}");
+
+            left = left.BelowCopy(fixedDeltaY: gapBetweenRows);
+            right = right.BelowCopy(fixedDeltaY: gapBetweenRows);
+
             composer.AddStaticText(LangEx.FeatureString(FeatureName, $"Dialogue.lbl{nameof(Settings.CameraShakeEnabled)}"), font.Clone().WithOrientation(EnumTextOrientation.Right), left);
             composer.AddHoverText(LangEx.FeatureString(FeatureName, $"Dialogue.lbl{nameof(Settings.CameraShakeEnabled)}.HoverText"), font, 260, left);
             composer.AddSwitch(OnCameraShakeEnabledChanged, right.FlatCopy().WithFixedWidth(switchSize), $"btn{nameof(Settings.CameraShakeEnabled)}");
@@ -155,6 +162,12 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Dialo
         private void OnFogEnabledChanged(bool state)
         {
             Settings.FogEnabled = state;
+            RefreshValues();
+        }
+
+        private void OnMistEnabledChanged(bool state)
+        {
+            Settings.MistEnabled = state;
             RefreshValues();
         }
 

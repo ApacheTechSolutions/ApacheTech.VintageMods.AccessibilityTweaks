@@ -14,7 +14,7 @@
 
   "ModTitle": "Barrierefreiheitsoptimierung",
   "ModDescription": "Generelle Verbesserungen für Content-Ersteller und Menschen die von Bewegung/Licht/Rauschen betroffenen Epilepsien oder Lichtempfindlichkeit beeinträchtigt werden.",
-  
+
   // ==================================================================================
   //  Infrastructure: Accessibility Hub
   // ==================================================================================
@@ -52,7 +52,7 @@
   "Features.ColourCorrection.Dialogue.Presets.Tritanomaly": "Blaue Farbunempfindlichkeit", // Blue Colour-Insensitivity
   "Features.ColourCorrection.Dialogue.Presets.Achromatopsia": "Graustufen", // Greyscale
   "Features.ColourCorrection.Dialogue.Presets.Achromatomaly": "Graustufen (Achromatomaly)", // Greyscale (Blue-Cone)
-  
+
   // ==================================================================================
   //  Feature: Scene Brightness
   // ==================================================================================
@@ -65,7 +65,7 @@
   "Features.SceneBrightness.Dialogue.lblEnabled.HoverText": "Superhellen Modus umschalten.",
   "Features.SceneBrightness.Dialogue.lblBrightness": "Helligkeit:",
   "Features.SceneBrightness.Dialogue.lblBrightness.HoverText": "Ändert die Helligkeitsstufe der Szene.",
-  
+
   // ==================================================================================
   //  Feature: Sound Effects
   // ==================================================================================
@@ -79,7 +79,7 @@
   "Features.SoundEffects.Dialogue.lblPitch": "Tonhöhe:",
   "Features.SoundEffects.Dialogue.lblPitch.HoverText": "Ändert die relative Tonhöhe des Soundeffekts. Dies kann Menschen mit Tinnitus oder anderen Problemen mit Hörverlust helfen.",
   "Features.SoundEffects.Dialogue.PlaySound": "Ton abspielen",
-  
+
   // ==================================================================================
   //  Feature: Visual Tweaks
   // ==================================================================================
@@ -94,6 +94,8 @@
   "Features.VisualTweaks.Dialogue.lblDustParticlesEnabled.HoverText": "Schaltet das Rendern von Staubpartikel Effekten um.",
   "Features.VisualTweaks.Dialogue.lblFogEnabled": "Nebeleffekte:",
   "Features.VisualTweaks.Dialogue.lblFogEnabled.HoverText": "Schaltet das Rendern von Nebeleffekten um.",
+  "Features.VisualTweaks.Dialogue.lblMistEnabled": "Bodennebeleffekte:",
+  "Features.VisualTweaks.Dialogue.lblMistEnabled.HoverText": "Schaltet das Rendern von Bodennebeleffekten um.",
   "Features.VisualTweaks.Dialogue.lblGlitchEnabled": "Glitch-Effekt:",
   "Features.VisualTweaks.Dialogue.lblGlitchEnabled.HoverText": "Schaltet das Rendering des Glitch-Effekts um, der mit Temporalen Stürmen ausgelöst wird.",
   "Features.VisualTweaks.Dialogue.lblHailstonesEnabled": "Hagelkörner:",

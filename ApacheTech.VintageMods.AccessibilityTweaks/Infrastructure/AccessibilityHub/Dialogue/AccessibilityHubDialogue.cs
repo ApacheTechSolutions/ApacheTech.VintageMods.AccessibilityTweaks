@@ -87,7 +87,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.Accessibilit
 
         private static bool OnSoundEffectsButtonPressed()
         {
-            ModServices.IOC.Resolve<SoundEffectsDialogue>().Toggle();
+            ModServices.IOC.CreateInstance<SoundEffectsDialogue>().Toggle();
             return true;
         }
         private static bool OnColourCorrectionButtonPressed()

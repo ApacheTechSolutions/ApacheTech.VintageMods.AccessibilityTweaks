@@ -37,6 +37,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialo
             _cellTexture = new LoadedTexture(capi);
             Cell.TitleFont ??= CairoFont.WhiteSmallishText();
             Cell.RightTopOffY = 3f;
+
             if (Cell.DetailTextFont != null) return;
             Cell.DetailTextFont = CairoFont.WhiteDetailText();
             Cell.DetailTextFont.Color[3] *= 0.6;

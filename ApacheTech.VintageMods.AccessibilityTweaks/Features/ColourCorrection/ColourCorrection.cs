@@ -37,7 +37,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.ColourCorrection
 
         private bool LoadShader()
         {
-            var shader = ModServices.IOC.Resolve<ColourCorrectionShaderProgram>();
+            var shader = ModServices.IOC.CreateInstance<ColourCorrectionShaderProgram>();
             _capi.Shader.RegisterFileShaderProgram(shader.PassName, shader);
             shader.Compile();
             _renderer.Shader = shader;

@@ -3,9 +3,7 @@ using ApacheTech.VintageMods.Core.Services.HarmonyPatching.Annotations;
 using Vintagestory.API.Common;
 using Vintagestory.Common;
 
-// ReSharper disable InconsistentNaming
-// ReSharper disable UnusedType.Global
-// ReSharper disable UnusedMember.Global
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SceneBrightness.Patches
 {

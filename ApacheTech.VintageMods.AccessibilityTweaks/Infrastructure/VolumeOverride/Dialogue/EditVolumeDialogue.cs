@@ -123,7 +123,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Infrastructure.VolumeOverri
             if (asset.Category != AssetCategory.music) return true;
 
             ApiEx.Client.CurrentMusicTrack?.FadeOut(0);
-            ApiEx.Client.GetVanillaClientSystem<SystemMusicEngine>().StartTrack(asset, 1000, EnumSoundType.Sound);
+            ApiEx.Client.GetInternalClientSystem<SystemMusicEngine>().StartTrack(asset, 1000, EnumSoundType.Sound);
             return true;
         }
 

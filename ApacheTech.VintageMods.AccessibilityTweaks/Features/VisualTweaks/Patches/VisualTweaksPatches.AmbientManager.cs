@@ -1,10 +1,12 @@
 ﻿using System;
 using HarmonyLib;
+using Vintagestory.API.MathTools;
 using Vintagestory.Client.NoObf;
 
 // ReSharper disable UnusedMember.Global
 // ReSharper disable UnusedType.Global
 // ReSharper disable InconsistentNaming
+// ReSharper disable ClassNeverInstantiated.Global
 
 namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patches
 {
@@ -23,11 +25,19 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
         [HarmonyPatch(typeof(AmbientManager), "UpdateAmbient")]
         public static void Patch_AmbientManager_UpdateAmbient_Postfix(AmbientManager __instance)
         {
-            if (Settings.FogEnabled) return;
             const float minValue = 0.001f;
+            if (!Settings.FogEnabled)
+            {
+                __instance.BlendedFogDensity = Math.Min(__instance.BlendedFogDensity, minValue);
+                __instance.BlendedFogMin = Math.Min(__instance.BlendedFogMin, __instance.BlendedFogDensity);
+            }
+
+            if (Settings.MistEnabled) return;
+            __instance.Base.FlatFogYPos = WeightedFloat.New(0, 0);
+            __instance.Base.FlatFogDensity = WeightedFloat.New(0, 0);
+            __instance.BlendedFlatFogYOffset = 0;
+            __instance.BlendedFlatFogYPosForShader = -30f;
             __instance.BlendedFlatFogDensity = Math.Min(__instance.BlendedFlatFogDensity, minValue);
-            __instance.BlendedFogDensity = Math.Min(__instance.BlendedFogDensity, minValue);
-            __instance.BlendedFogMin = Math.Min(__instance.BlendedFogMin, __instance.BlendedFogDensity);
         }
     }
 }

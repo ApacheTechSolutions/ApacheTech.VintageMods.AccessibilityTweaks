@@ -112,6 +112,9 @@
   "Features.VisualTweaks.Dialogue.lblFogEnabled": "Эффекты тумана:",
   "Features.VisualTweaks.Dialogue.lblFogEnabled.HoverText": "Переключает отрисовку эффектов тумана.",
 
+  "Features.VisualTweaks.Dialogue.lblMistEnabled": "Эффекты наземного тумана:",
+  "Features.VisualTweaks.Dialogue.lblMistEnabled.HoverText": "Переключает рендеринг эффектов наземного тумана.",
+
   "Features.VisualTweaks.Dialogue.lblGlitchEnabled": "Глюки экрана:",
   "Features.VisualTweaks.Dialogue.lblGlitchEnabled.HoverText": "Переключает отрисовку эффектов глюка, которые происходят во время темпорального шторма.",
 

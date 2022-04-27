@@ -2,6 +2,7 @@
 using ApacheTech.VintageMods.Core.Common.StaticHelpers;
 using HarmonyLib;
 using Vintagestory.API.Client;
+using Vintagestory.API.Common;
 using Vintagestory.API.MathTools;
 
 // ReSharper disable UnusedMember.Global
@@ -34,38 +35,51 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
             long ___damangeVignettingUntil,
             float ___strength,
             int ___duration, 
-            float ___curFreezingVal)
+            ref float ___curFreezingVal)
         {
             var capi = ApiEx.Client;
             if (capi.IsGamePaused) return false;
-            var eplr = capi.World.Player;
-            var healthTree = eplr.Entity.WatchedAttributes.GetTreeAttribute("health");
-            var healthRel = healthTree == null ? 1 : healthTree.GetFloat("currenthealth") / healthTree.GetFloat("maxhealth");
+            var player = capi.World.Player;
+            HandleDamageEffects(___noisegen, ref ___damangeVignettingUntil, ___strength, ___duration, player, capi);
+            HandleFreezingEffects(dt, ___noisegen, ref ___curFreezingVal, player, capi);
+            return false;
+        }
+
+        private static void HandleDamageEffects(NormalizedSimplexNoise noisegen, ref long damageVignettingUntil,
+            float ___strength, int ___duration, IPlayer player, ICoreClientAPI capi)
+        {
+            var healthTree = player.Entity.WatchedAttributes.GetTreeAttribute("health");
+            var healthRel = healthTree?.GetFloat("currenthealth", 1f) / healthTree?.GetFloat("maxhealth") ?? 1f;
 
             var f = Math.Max(0, (0.23f - healthRel) * 1 / 0.18f);
             float lowHealthness = 0;
 
-            if (f > 0 && Settings.CameraShakeEnabled)
+            if (f > 0)
             {
                 var ellapseSec = (float)(capi.InWorldEllapsedMilliseconds / 1000.0);
 
-                var bla = (float)___noisegen.Noise(12412, ellapseSec / 2) * 0.5f + (float)Math.Pow(Math.Abs(GameMath.Sin(ellapseSec * 1 / 0.7f)), 30) * 0.5f;
+                var bla = (float)noisegen.Noise(12412, ellapseSec / 2) * 0.5f +
+                          (float)Math.Pow(Math.Abs(GameMath.Sin(ellapseSec * 1 / 0.7f)), 30) * 0.5f;
+
                 lowHealthness = Math.Min(f * 1.5f, 1) * (bla * 0.75f + 0.5f);
 
-                if (eplr.Entity.Alive)
+                if (player.Entity.Alive)
                 {
-                    capi.Render.ShaderUniforms.ExtraSepia = GameMath.Clamp(f * (float)___noisegen.Noise(0, ellapseSec / 3) * 1.2f, 0, 1.2f);
+                    capi.Render.ShaderUniforms.ExtraSepia =
+                        GameMath.Clamp(f * (float)noisegen.Noise(0, ellapseSec / 3) * 1.2f, 0, 1.2f);
+
                     if (capi.World.Rand.NextDouble() < 0.01)
                     {
                         capi.World.AddCameraShake(0.15f * f);
                     }
 
-                    capi.Input.MouseYaw += f * (float)(___noisegen.Noise(76, ellapseSec / 50) - 0.5f) * 0.003f;
-
-                    var dp = f * (float)(___noisegen.Noise(ellapseSec / 50, 987) - 0.5f) * 0.003f;
-
-                    eplr.Entity.Pos.Pitch += dp;
-                    capi.Input.MousePitch += dp;
+                    if (Settings.CameraShakeEnabled)
+                    {
+                        capi.Input.MouseYaw += f * (float)(noisegen.Noise(76, ellapseSec / 50) - 0.5f) * 0.003f;
+                        var dp = f * (float)(noisegen.Noise(ellapseSec / 50, 987) - 0.5f) * 0.003f;
+                        player.Entity.Pos.Pitch += dp;
+                        capi.Input.MousePitch += dp;
+                    }
                 }
             }
             else
@@ -73,27 +87,29 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks.Patch
                 capi.Render.ShaderUniforms.ExtraSepia = 0;
             }
 
-            var val = GameMath.Clamp((int)(___damangeVignettingUntil - capi.ElapsedMilliseconds), 0, ___duration);
+            var duration = GameMath.Clamp((int)(damageVignettingUntil - capi.ElapsedMilliseconds), 0, ___duration);
+            var strength = GameMath.Clamp(___strength / 2, 0.5f, 3.5f);
+            var relativeHealth = (float)duration / Math.Max(1, ___duration) + lowHealthness;
+            capi.Render.ShaderUniforms.DamageVignetting = GameMath.Clamp(strength * relativeHealth, 0, 1.5f);
+        }
 
-            capi.Render.ShaderUniforms.DamageVignetting = GameMath.Clamp(GameMath.Clamp(___strength / 2, 0.5f, 3.5f) * ((float)val / Math.Max(1, ___duration)) + lowHealthness, 0, 1.5f);
+        private static void HandleFreezingEffects(float dt, NormalizedSimplexNoise noisegen, ref float currentFreezingValue,
+            IClientPlayer player, ICoreClientAPI capi)
+        {
+            var freezing = player.Entity.WatchedAttributes.GetFloat("freezingEffectStrength");
 
-            var freezing = eplr.Entity.WatchedAttributes.GetFloat("freezingEffectStrength");
+            currentFreezingValue += (freezing - currentFreezingValue) * dt;
+            capi.Render.ShaderUniforms.FrostVignetting = currentFreezingValue;
 
-            ___curFreezingVal += (freezing - ___curFreezingVal) * dt;
+            if (!Settings.CameraShakeEnabled || 
+                currentFreezingValue <= 0.1 || 
+                player.CameraMode != EnumCameraMode.FirstPerson) return;
 
-            if (Settings.CameraShakeEnabled)
-            {
-                if (___curFreezingVal > 0.1 && eplr.CameraMode == EnumCameraMode.FirstPerson)
-                {
-                    var ellapseSec = (float)(capi.InWorldEllapsedMilliseconds / 1000.0);
-                    capi.Input.MouseYaw += capi.Settings.Float["cameraShakeStrength"] * 
-                                           (float)(Math.Max(0, ___noisegen.Noise(ellapseSec, 12) - 0.4f) * 
-                                                   Math.Sin(ellapseSec * 90) * 0.01) * GameMath.Clamp(___curFreezingVal * 3, 0, 1);
-                }
-            }
+            var ellapsedSeconds = (float)(capi.InWorldEllapsedMilliseconds / 1000.0);
+            capi.Input.MouseYaw += capi.Settings.Float["cameraShakeStrength"] *
+                                   (float)(Math.Max(0, noisegen.Noise(ellapsedSeconds, 12) - 0.4f) *
+                                           Math.Sin(ellapsedSeconds * 90) * 0.01) * GameMath.Clamp(currentFreezingValue * 3, 0, 1);
 
-            capi.Render.ShaderUniforms.FrostVignetting = ___curFreezingVal;
-            return false;
         }
     }
 }

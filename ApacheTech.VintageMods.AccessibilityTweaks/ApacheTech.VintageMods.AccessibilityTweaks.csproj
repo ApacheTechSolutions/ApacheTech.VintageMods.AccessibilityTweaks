@@ -11,6 +11,7 @@
 		<Configurations>Debug;Release;Package</Configurations>
 		<TreatWarningsAsErrors>true</TreatWarningsAsErrors>
 		<WarningsAsErrors />
+		<Version>2.3.0.0</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -78,7 +79,7 @@
 		</ItemGroup>
 
 		<PropertyGroup>
-			<VintageStoryDirectory>C:\Games\Vintage Story Beta\</VintageStoryDirectory>
+			<VintageStoryDirectory>D:\Games\Vintage Story\</VintageStoryDirectory>
 		</PropertyGroup>
 
 	<ItemGroup>

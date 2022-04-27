@@ -11,21 +11,15 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SceneBrightness.Pa
     public sealed partial class SceneBrightnessPatches
     {
         /// <summary>
-        ///     Applies a <see cref="HarmonyPrefix"/> patch to the "DayLightStrength" method in <see cref="ClientGameCalendar"/> class.
+        ///     Applies a <see cref="HarmonyPostfix"/> patch to the "DayLightStrength" method in the <see cref="ClientGameCalendar"/> class.
         /// </summary>
         /// <param name="__result">The <see cref="float"/> value passed into the original method.</param>
-        [HarmonyPrefix]
+        [HarmonyPostfix]
         [HarmonyPatch(typeof(ClientGameCalendar), "DayLightStrength", MethodType.Getter)]
-        public static bool Patch_ClientGameCalendar_DayLightStrength_Prefix(ref float __result)
+        public static void Patch_ClientGameCalendar_DayLightStrength_Postfix(ref float __result)
         {
-            return ProcessValue(ref __result);
-        }
-
-        private static bool ProcessValue(ref float value)
-        {
-            if (!Settings.Enabled) return true;
-            value = Math.Max(Settings.Brightness, value);
-            return false;
+            if (!Settings.Enabled) return;
+            __result = Math.Max(Settings.Brightness, __result);
         }
     }
 }

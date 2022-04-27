@@ -52,6 +52,12 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.VisualTweaks
         public bool FogEnabled { get; set; } = true;
 
         /// <summary>
+        ///     Gets or sets a value indicating whether mist effects should be rendered, or not.
+        /// </summary>
+        /// <value><c>true</c> if mist effects are enabled; otherwise, <c>false</c>.</value>
+        public bool MistEnabled { get; set; } = true;
+
+        /// <summary>
         ///     Gets or sets a value indicating whether jittery shaking camera effects should be rendered, or not.
         /// </summary>
         /// <value><c>true</c> if jittery shaking camera effects are enabled; otherwise, <c>false</c>.</value>
