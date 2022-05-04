@@ -57,6 +57,17 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patch
                 postfix: new HarmonyMethod(
                     typeof(SoundEffectsPatches)
                         .GetMethod(nameof(Patch_ILoadedSound_VolumeMultiplier_Getter_Postfix))));
+
+            //var pitchOffsetMethod = type.GetMethod("SetPitchOffset");
+
+            //Debug.Assert(pitchOffsetMethod is not null, "Cannot find pitch offset method.");
+
+            //ModServices.Harmony.Default.Patch(pitchOffsetMethod,
+            //    prefix: new HarmonyMethod(
+            //        typeof(SoundEffectsPatches)
+            //            .GetMethod(nameof(Patch_ILoadedSound_SetPitchOffset_Prefix))));
+
+
         }
     }
 }

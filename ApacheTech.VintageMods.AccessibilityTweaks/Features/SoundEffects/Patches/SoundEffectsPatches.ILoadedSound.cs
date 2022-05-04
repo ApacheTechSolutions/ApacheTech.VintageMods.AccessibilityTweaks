@@ -25,5 +25,18 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Patch
             if (volumeOverride is null) return;
             __result *= volumeOverride.Muted ? 0f : volumeOverride.VolumeMultiplier;
         }
+
+        /// <summary>
+        ///     Applies a <see cref="HarmonyPrefix"/> patch to the "SetPitchOffset" getter method in <see cref="ILoadedSound"/> concrete class.
+        /// </summary>
+        /// <param name="__instance">The instance of <see cref="ILoadedSound"/> this patch has been applied to.</param>
+        /// <param name="val">The <see cref="float"/> value passed into the original method.</param>
+        public static void Patch_ILoadedSound_SetPitchOffset_Prefix(ILoadedSound __instance, ref float val)
+        {
+            var path = __instance.Params.Location?.ToString();
+            var volumeOverride = Settings.SoundAssets.FirstOrNull(p => p.Key == path);
+            if (volumeOverride is null) return;
+            val *= volumeOverride.PitchMultiplier;
+        }
     }
 }   

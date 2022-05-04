@@ -65,6 +65,7 @@ namespace ApacheTech.VintageMods.AccessibilityTweaks.Features.SoundEffects.Dialo
             _cells = GetCellEntries();
             _cellList.ReloadCells(_cells);
             UpdateActiveSounds();
+            FilterCells();
             RefreshValues();
         }
 
